@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
+const path = require('path');
 require('dotenv').config();
 
 // middleware
@@ -22,7 +23,7 @@ mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongod
 });
 
 // route
-app.use(express.static('./frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
 app.get('/', (req, res) => {
-    res.sendFile('./frontend/src/index.html');
+    res.sendFile(path.join(__dirname, '../frontend/src/index.html'));
 });
