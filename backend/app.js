@@ -5,6 +5,16 @@ const cors = require("cors");
 const path = require('path');
 require('dotenv').config();
 
+// sending the React app if conditions are met
+app.use(express.static(path.join(__dirname, "/../frontend/build")));
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+    } else {
+        next();
+    }
+});
+
 // middleware
 const corsOptions = {
     origin: ['http://localhost','https://heatpeakstudio.com']
@@ -20,14 +30,4 @@ mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongod
     })
 }).catch(err => {
     console.log(err);
-});
-
-// route
-app.use(express.static(path.join(__dirname, "/../frontend/build")));
-app.use((req, res, next) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-    } else {
-        next();
-    }
 });
