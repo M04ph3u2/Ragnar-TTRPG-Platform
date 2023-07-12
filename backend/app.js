@@ -22,7 +22,7 @@ mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongod
 });
 
 // route
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static('./frontend'));
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/src/index.html'));
+    res.sendFile('./frontend/src/index.html');
 });
