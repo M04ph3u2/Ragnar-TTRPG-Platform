@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 const path = require('path');
-require('dotenv').config();
 
 // sending the React app if conditions are met
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
