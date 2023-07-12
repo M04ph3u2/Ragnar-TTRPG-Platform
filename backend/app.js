@@ -24,6 +24,10 @@ mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongod
 
 // route
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
-app.get('/^\/(?!api).*/', (req, res) => {
-    res.sendFile(path.join(__dirname, "/../frontend/build/index.html"));
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+    } else {
+        next();
+    }
 });
