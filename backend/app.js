@@ -6,7 +6,7 @@ require('dotenv').config();
 
 // middleware
 const corsOptions = {
-    origin: 'https://heatpeakstudio.com'
+    origin: ['http://localhost','https://heatpeakstudio.com']
 }
 app.use(express.json());
 app.use(cors(corsOptions));
