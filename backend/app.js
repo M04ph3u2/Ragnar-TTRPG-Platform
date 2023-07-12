@@ -6,14 +6,13 @@ require('dotenv').config();
 
 // middleware
 const corsOptions = {
-    origin: "https://www.heatpeakstudio.com"
+    origin: 'https://heatpeakstudio.com'
 }
 app.use(express.json());
 app.use(cors(corsOptions));
 
 // connect MongoDB
-mongoose.connect("mongodb + srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority").then(() => {
-).then(() => {
+mongoose.connect('mongodb + srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
     const PORT = 4000;
     app.listen(PORT, () => {
         console.log(`App is Listening on PORT ${PORT}`);
