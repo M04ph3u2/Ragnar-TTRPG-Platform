@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-require("dotenv").config();
+require('dotenv').config();
 
 // middleware
 const corsOptions = {
