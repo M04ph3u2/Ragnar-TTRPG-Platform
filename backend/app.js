@@ -21,3 +21,7 @@ mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongod
     console.log(err);
 });
 
+// route
+app.get("/", (req, res) => {
+    res.status(201).json({ message: "This website is under construction! Stay tuned at https://www.instagram.com/heatpeakstudio/ for more infos~" });
+});
