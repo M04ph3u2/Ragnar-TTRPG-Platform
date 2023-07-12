@@ -23,5 +23,5 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 
 // route
 app.get("/", (req, res) => {
-    res.status(201).json({ message: "Connected to Backend!" });
+    res.status(201).json({ message: "This website is under construction! Stay tuned at https://www.instagram.com/heatpeakstudio/ for more infos~" });
 });
