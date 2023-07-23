@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
 
+app.use(express.static(path.join(__dirname, "/../frontend/build")));
+
 // sending the React app if conditions are met
 app.use((req, res, next) => {
     if (!req.path.startsWith('/api')) {
-        app.use(express.static(path.join(__dirname, "/../frontend/build")));
         res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
     } else {
         next();
