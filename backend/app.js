@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const cors = require("cors");
 const path = require('path');
 
 // sending the React app if conditions are met
@@ -15,11 +14,7 @@ app.use((req, res, next) => {
 });
 
 // middleware
-const corsOptions = {
-    origin: ['http://localhost','https://heatpeakstudio.com']
-}
 app.use(express.json());
-app.use(cors(corsOptions));
 
 // connect MongoDB
 mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
