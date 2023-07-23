@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
+const helmet = require('helmet');
+const apiRouter = require('./api.js');
 
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
 
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
 
 // middleware
 app.use(express.json());
+app.use('/api', apiRouter);
 
 // connect MongoDB
 mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
