@@ -1,4 +1,4 @@
-const Class = require('./class.js');
+const Class = require('./classes.js');
 const Item = require('./items.js');
 const mongoose = require('mongoose');
 
