@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
-const helmet = require('helmet');
 const apiRouter = require('./api.js');
 
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
