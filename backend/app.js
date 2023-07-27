@@ -4,20 +4,21 @@ const app = express();
 const path = require('path');
 const apiRouter = require('./apiRouter.js');
 
-app.use(express.static(path.join(__dirname, "/../frontend/build")));
+// Collega tutte le richieste che iniziano con "/api" al router API
+app.use('/api', apiRouter);
 
-// sending the React app if conditions are met
-app.use((req, res, next) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-    } else {
-        next();
-    }
+// Servi i file statici nella directory "dist" (assumendo che sia stata creata dalla build di Vite)
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Servi l'index.html solo per le richieste relative al frontend (non per le richieste API)
+app.get('/*', (req, res) => {
+  if (!req.path.startsWith('/api')) {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  }
 });
 
 // middleware
 app.use(express.json());
-app.use('/api', apiRouter);
 
 // connect MongoDB
 mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
