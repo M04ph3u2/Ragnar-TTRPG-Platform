@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
-const apiRouter = require('./api.js');
+const apiRouter = require('./apiRouter.js');
 
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
 
