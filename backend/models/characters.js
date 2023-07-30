@@ -27,7 +27,8 @@ const characterSchema = new mongoose.Schema({
     uses: {
       type: Number,
       default: 0
-    }
+    },
+    _id: false
   }],
   description: {
     race: {

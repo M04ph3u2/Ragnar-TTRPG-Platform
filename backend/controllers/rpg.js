@@ -1,4 +1,5 @@
 const Character = require('../models/characters.js');
+const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
 
@@ -18,25 +19,43 @@ module.exports = {
 
   charaNew: async (req, res) => {
     try {
-      // Crea una nuova istanza del personaggio utilizzando il modello Character
-    const newCharacter = new Character({
-      /*
-      name: name,
-      class: classId,
-      style: style,
-      abilities: abilities,
-      description: description,
-      inventory: inventory,
-      statistics: statistics
-      */
-      name: 'TEST'
-    });
+      const {name, classId, style, abilities, race, eyes, hairs, height, lore, skin, weight, references, items, constitution, strenght, dexterity, intelligence, wisdom, charisma, HP, HPmax, MP, HPbase} = req.body;
+      
+      const newCharacter = new Character({
+        name: name,
+        class: new ObjectId(classId),
+        style: style,
+        abilities: abilities.map((abilityName) => ({ability: abilityName})),
+        description: {
+          race: race,
+          eyes: eyes,
+          hairs: hairs,
+          height: height,
+          lore: lore,
+          skin: skin,
+          weight: weight,
+          references: references
+        },
+        inventory: items.map((item) => ({item: item})),
+        statistics: {
+          constitution: constitution,
+          strenght: strenght,
+          dexterity: dexterity,
+          intelligence: intelligence,
+          wisdom: wisdom,
+          charisma: charisma,
+          HP: HP,
+          HPmax: HPmax,
+          MP: MP,
+          HPbase: HPbase
+        }
+      });
 
-    // Salva il nuovo personaggio nel database
-    await newCharacter.save();
+      // Salva il nuovo personaggio nel database
+      await newCharacter.save();
 
-    // Invia una risposta di successo al client
-    res.status(200).json({ message: 'New character created successfully', character: newCharacter });
+      // Invia una risposta di successo al client
+      res.status(200).json({ message: 'New character created successfully', character: newCharacter });
     } catch (error) {
       console.error('Error while creating and sending to db a new chatacter:', error);
       return res.status(500).json({ message: 'Error while creating and sending to db a new chatacter' });
