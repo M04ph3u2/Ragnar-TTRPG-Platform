@@ -1,5 +1,3 @@
-const Class = require('./classes.js');
-const Item = require('./items.js');
 const mongoose = require('mongoose');
 
 const characterSchema = new mongoose.Schema({
@@ -7,44 +5,115 @@ const characterSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     auto: true
   },
-  name: String,
+  name: {
+    type: String,
+    required: true,
+    default: ''
+  },
   class: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Class'
+    ref: 'Class',
+    default: () => new mongoose.Types.ObjectId('64bd3ef65391ec1e4d122a53')
   },
-  style: String,
+  style: {
+    type: String,
+    default: ''
+  },
   abilities: [{
-    ability: String,
-    uses: Number
+    ability: {
+      type: String,
+      default: ''
+    },
+    uses: {
+      type: Number,
+      default: 0
+    }
   }],
   description: {
-    race: String,
-    eyes: String,
-    hairs: String,
-    height: Number,
-    lore: String,
-    skin: String,
-    weight: Number,
-    references: [String]
+    race: {
+      type: String,
+      default: ''
+    },
+    eyes: {
+      type: String,
+      default: ''
+    },
+    hairs: {
+      type: String,
+      default: ''
+    },
+    height: {
+      type: Number,
+      default: 0
+    },
+    lore: {
+      type: String,
+      default: ''
+    },
+    skin: {
+      type: String,
+      default: ''
+    },
+    weight: {
+      type: Number,
+      default: 0
+    },
+    references: {
+      type: [String],
+      default: []
+    }
   },
   inventory: [{
     item: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Item'
     },
-    stacks: Number
+    stacks: {
+      type: Number,
+      default: 0
+    }
   }],
   statistics:{
-    constitution: Number,
-    strenght: Number,
-    dexterity: Number,
-    intelligence: Number,
-    wisdom: Number,
-    charisma: Number,
-    HP: Number,
-    HPmax: Number,
-    MP: Number,
-    HPbase: Number
+    constitution: {
+      type: Number,
+      default: 0
+    },
+    strenght: {
+      type: Number,
+      default: 0
+    },
+    dexterity: {
+      type: Number,
+      default: 0
+    },
+    intelligence: {
+      type: Number,
+      default: 0
+    },
+    wisdom: {
+      type: Number,
+      default: 0
+    },
+    charisma: {
+      type: Number,
+      default: 0
+    },
+    HP: {
+      type: Number,
+      default: 0
+    },
+    HPmax: {
+      type: Number,
+      default: 0
+    },
+    MP: {
+      type: Number,
+      default: 0
+    },
+    HPbase: {
+      type: Number,
+      default: 0
+    }
   }
 });
 

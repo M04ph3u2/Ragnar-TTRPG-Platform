@@ -5,14 +5,36 @@ const itemsSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     auto: true
   },
-  name: String,
-  canstack: Boolean,
-  description: String,
-  modifiers: [{
+  name: {
     type: String,
-    scaling: String,
-    maxscaling: Number,
-    flat: Number
+    required: true,
+    default: '' // Valore predefinito per il campo "name"
+  },
+  canstack: {
+    type: Boolean,
+    default: false // Imposta il valore predefinito a false (se non specificato)
+  },
+  description: {
+    type: String,
+    default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+  },
+  modifiers: [{
+    type: {
+      type: String,
+      default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+    },
+    scaling: {
+      type: String,
+      default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+    },
+    maxscaling: {
+      type: Number,
+      default: 0 // Imposta il valore predefinito a 0 (se non specificato)
+    },
+    flat: {
+      type: Number,
+      default: 0 // Imposta il valore predefinito a 0 (se non specificato)
+    }
   }]
 });
 
