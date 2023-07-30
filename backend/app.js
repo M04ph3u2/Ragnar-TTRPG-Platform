@@ -2,7 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
+const cors = require('cors');
+const helmet = require('helmet');
 const apiRouter = require('./apiRouter.js');
+
+// middleware
+app.use(cors({
+  origin: ['https://web-mern.m04ph3u2.repl.co/', 'https://heatpeakstudio.com/'],
+  credentials: true
+}));
+app.use(express.json());
+app.use(helmet());
 
 // Collega tutte le richieste che iniziano con "/api" al router API
 app.use('/api', apiRouter);
@@ -16,9 +26,6 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
   }
 });
-
-// middleware
-app.use(express.json());
 
 // connect MongoDB
 mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
