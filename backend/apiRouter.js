@@ -3,7 +3,7 @@ const router = express.Router();
 
 const rpgRouter = require('./routes/rpg.js');
 
-router.post('/rpg', rpgRouter);
+router.use('/rpg', rpgRouter);
 
 router.get('/', (req, res) => {
   res.send('Router per il funzionamento delle API');
