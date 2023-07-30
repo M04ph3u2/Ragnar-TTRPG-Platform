@@ -21,9 +21,12 @@ const classesSchema = new mongoose.Schema({
       basedescription: String,
       levelsdescriptions: [String]
     }]
-  }].
+  }],
   modifiers: [{
-    
+    type: String,
+    flat: Number,
+    scaling: Number,
+    maxscaling: Number
   }]
 });
 

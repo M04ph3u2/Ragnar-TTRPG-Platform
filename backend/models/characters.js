@@ -15,16 +15,16 @@ const characterSchema = new mongoose.Schema({
   style: String,
   abilities: [{
     ability: String,
-    uses: Int64
+    uses: Number
   }],
   description: {
     race: String,
     eyes: String,
     hairs: String,
-    height: Double,
+    height: Number,
     lore: String,
     skin: String,
-    weight: Double,
+    weight: Number,
     references: [String]
   },
   inventory: [{
@@ -32,19 +32,19 @@ const characterSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Item'
     },
-    stacks: Int64
+    stacks: Number
   }],
   statistics:{
-    constitution: Int64,
-    strenght: Int64,
-    dexterity: Int64,
-    intelligence: Int64,
-    wisdom: Int64,
-    charisma: Int64,
-    HP: Int64,
-    HPmax: Int64,
-    MP: Int64,
-    HPbase: Int64
+    constitution: Number,
+    strenght: Number,
+    dexterity: Number,
+    intelligence: Number,
+    wisdom: Number,
+    charisma: Number,
+    HP: Number,
+    HPmax: Number,
+    MP: Number,
+    HPbase: Number
   }
 });
 

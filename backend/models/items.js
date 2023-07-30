@@ -11,8 +11,8 @@ const itemsSchema = new mongoose.Schema({
   modifiers: [{
     type: String,
     scaling: String,
-    maxscaling: Int64,
-    flat: Int64
+    maxscaling: Number,
+    flat: Number
   }]
 });
 
