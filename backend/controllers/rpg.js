@@ -60,6 +60,17 @@ module.exports = {
       console.error('Error while creating and sending to db a new chatacter:', error);
       return res.status(500).json({ message: 'Error while creating and sending to db a new chatacter' });
     }
+  },
+
+  sheetPrint: async (req, res) => {
+    try {
+      const {id} = req.body;
+      const character = await Character.find({_id: new ObjectId(id)});
+      res.status(200).json(character);
+    } catch (error) {
+      console.error('Error while retrieving the character sheet:', error);
+      return res.status(500).json({ message: 'Error while retrieving the character sheet' });
+    }
   }
   
 };

@@ -7,4 +7,6 @@ router.get('/charaNames', rpgController.charaNames);
 
 router.post('/charaNew', rpgController.charaNew);
 
+router.post('/sheetPrint', rpgController.sheetPrint);
+
 module.exports = router;
