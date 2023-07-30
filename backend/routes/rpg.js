@@ -5,4 +5,6 @@ const rpgController = require('../controllers/rpg.js');
 
 router.get('/charaNames', rpgController.charaNames);
 
+router.post('/charaNew', rpgController.charaNew);
+
 module.exports = router;

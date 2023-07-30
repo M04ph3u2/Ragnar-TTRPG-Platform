@@ -8,7 +8,7 @@ const apiRouter = require('./apiRouter.js');
 
 // middleware
 app.use(cors({
-  origin: ['https://web-mern.m04ph3u2.repl.co/', 'https://heatpeakstudio.com/'],
+  origin: ['https://web-mern.m04ph3u2.repl.co/', 'https://heatpeakstudio.com/', '*'],
   credentials: true
 }));
 app.use(express.json());
@@ -28,7 +28,7 @@ app.get('/*', (req, res) => {
 });
 
 // connect MongoDB
-mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/?retryWrites=true&w=majority').then(() => {
+mongoose.connect('mongodb+srv://admin:9yRFhKEgbzFqQU9i@bestdbever.kplqcma.mongodb.net/RPG').then(() => {
     const PORT = 4000;
     app.listen(PORT, () => {
         console.log(`App is Listening on PORT ${PORT}`);
