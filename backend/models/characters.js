@@ -35,6 +35,10 @@ const characterSchema = new mongoose.Schema({
       type: String,
       default: ''
     },
+    age: {
+      type: Number,
+      default: 0
+    },
     eyes: {
       type: String,
       default: ''
@@ -79,7 +83,7 @@ const characterSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-    strenght: {
+    strength: {
       type: Number,
       default: 0
     },

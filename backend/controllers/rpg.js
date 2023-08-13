@@ -8,7 +8,7 @@ module.exports = {
       const charas = await Character.find({});
       const names = [];
       charas.forEach(chara => {
-        names.push(chara.name + ' (' + chara._id + ')');
+        names.push({name: chara.name, id: chara._id});
       });
       res.status(200).json(names);
     } catch (error) {
@@ -20,12 +20,21 @@ module.exports = {
   charaNew: async (req, res) => {
     try {
       const {name, classId, style, abilities, race, eyes, hairs, height, lore, skin, weight, references, items, constitution, strenght, dexterity, intelligence, wisdom, charisma, HP, HPmax, MP, HPbase} = req.body;
+
+      let newAbilities;
+      if (abilities) {
+        newAbilities = abilities.map((abilityName) => ({ability: abilityName}));
+      }
+      let newItems;
+      if (items) {
+        newItems = items.map((item) => ({item: item}));
+      }
       
       const newCharacter = new Character({
         name: name,
         class: new ObjectId(classId),
         style: style,
-        abilities: abilities.map((abilityName) => ({ability: abilityName})),
+        abilities: newAbilities,
         description: {
           race: race,
           eyes: eyes,
@@ -36,7 +45,7 @@ module.exports = {
           weight: weight,
           references: references
         },
-        inventory: items.map((item) => ({item: item})),
+        inventory: newItems,
         statistics: {
           constitution: constitution,
           strenght: strenght,
@@ -65,7 +74,7 @@ module.exports = {
   sheetPrint: async (req, res) => {
     try {
       const {id} = req.body;
-      const character = await Character.find({_id: new ObjectId(id)});
+      const character = await Character.findOne({_id: id});
       res.status(200).json(character);
     } catch (error) {
       console.error('Error while retrieving the character sheet:', error);
