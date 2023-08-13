@@ -1,4 +1,5 @@
 const Character = require('../models/characters.js');
+const Class = require('../models/classes.js');
 const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
@@ -79,6 +80,17 @@ module.exports = {
     } catch (error) {
       console.error('Error while retrieving the character sheet:', error);
       return res.status(500).json({ message: 'Error while retrieving the character sheet' });
+    }
+  },
+
+  classPrint: async (req, res) => {
+    try {
+      const {abilityName, classId} = req.body;
+      const classObject = await Class.findOne({_id: classId});
+      res.status(200).json(classObject);
+    } catch (error) {
+      console.error('Error while retrieving the class:', error);
+      return res.status(500).json({ message: 'Error while retrieving the class' });
     }
   }
   

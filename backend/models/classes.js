@@ -46,9 +46,9 @@ const classesSchema = new mongoose.Schema({
         type: String,
         default: '' // Valore predefinito per il campo "tier" all'interno di "abilities"
       },
-      basedescription: {
+      description: {
         type: String,
-        default: '' // Valore predefinito per il campo "basedescription" all'interno di "abilities"
+        default: '' // Valore predefinito per il campo "description" all'interno di "abilities"
       },
       levelsdescriptions: {
         type: [String],

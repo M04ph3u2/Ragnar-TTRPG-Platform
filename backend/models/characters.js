@@ -10,7 +10,7 @@ const characterSchema = new mongoose.Schema({
     required: true,
     default: ''
   },
-  class: {
+  classId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
     default: () => new mongoose.Types.ObjectId('64bd3ef65391ec1e4d122a53')
@@ -20,7 +20,7 @@ const characterSchema = new mongoose.Schema({
     default: ''
   },
   abilities: [{
-    ability: {
+    name: {
       type: String,
       default: ''
     },
