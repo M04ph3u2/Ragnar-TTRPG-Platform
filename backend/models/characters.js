@@ -13,7 +13,7 @@ const characterSchema = new mongoose.Schema({
   classId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
-    default: () => new mongoose.Types.ObjectId('64bd3ef65391ec1e4d122a53')
+    default: new mongoose.Types.ObjectId('64bd3ef65391ec1e4d122a53')
   },
   style: {
     type: String,

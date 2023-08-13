@@ -53,26 +53,26 @@ const classesSchema = new mongoose.Schema({
       levelsdescriptions: {
         type: [String],
         default: [] // Valore predefinito per il campo "levelsdescriptions" all'interno di "abilities"
-      }
+      },
+      modifiers: [{
+        type: {
+          type: String,
+          default: '' // Valore predefinito per il campo "type" all'interno di "modifiers"
+        },
+        flat: {
+          type: Number,
+          default: 0 // Valore predefinito per il campo "flat" all'interno di "modifiers"
+        },
+        scaling: {
+          type: Number,
+          default: 0 // Valore predefinito per il campo "scaling" all'interno di "modifiers"
+        },
+        maxscaling: {
+          type: Number,
+          default: 0 // Valore predefinito per il campo "maxscaling" all'interno di "modifiers"
+        }
+      }]
     }]
-  }],
-  modifiers: [{
-    type: {
-      type: String,
-      default: '' // Valore predefinito per il campo "type" all'interno di "modifiers"
-    },
-    flat: {
-      type: Number,
-      default: 0 // Valore predefinito per il campo "flat" all'interno di "modifiers"
-    },
-    scaling: {
-      type: Number,
-      default: 0 // Valore predefinito per il campo "scaling" all'interno di "modifiers"
-    },
-    maxscaling: {
-      type: Number,
-      default: 0 // Valore predefinito per il campo "maxscaling" all'interno di "modifiers"
-    }
   }]
 });
 

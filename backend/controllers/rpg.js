@@ -20,11 +20,11 @@ module.exports = {
 
   charaNew: async (req, res) => {
     try {
-      const {name, classId, style, abilities, race, eyes, hairs, height, lore, skin, weight, references, items, constitution, strenght, dexterity, intelligence, wisdom, charisma, HP, HPmax, MP, HPbase} = req.body;
+      const {name, classId, style, abilities, race, age, eyes, hairs, height, lore, skin, weight, references, items, constitution, strength, dexterity, intelligence, wisdom, charisma, HP, HPmax, MP, HPbase} = req.body;
 
       let newAbilities;
       if (abilities) {
-        newAbilities = abilities.map((abilityName) => ({ability: abilityName}));
+        newAbilities = abilities.map((abilityName) => ({name: abilityName}));
       }
       let newItems;
       if (items) {
@@ -33,11 +33,12 @@ module.exports = {
       
       const newCharacter = new Character({
         name: name,
-        class: new ObjectId(classId),
+        class: new ObjectId (classId),
         style: style,
         abilities: newAbilities,
         description: {
           race: race,
+          age: age,
           eyes: eyes,
           hairs: hairs,
           height: height,
@@ -49,7 +50,7 @@ module.exports = {
         inventory: newItems,
         statistics: {
           constitution: constitution,
-          strenght: strenght,
+          strength: strength,
           dexterity: dexterity,
           intelligence: intelligence,
           wisdom: wisdom,
