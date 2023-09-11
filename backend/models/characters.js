@@ -10,30 +10,33 @@ const characterSchema = new mongoose.Schema({
     required: true,
     default: ''
   },
+  lvl: {
+    type: Number,
+    default: 1
+  },
+  race: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Race',
+    default: new mongoose.Types.ObjectId('64dcbeb278d5abc32e6161f7')
+  },
   classId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
-    default: new mongoose.Types.ObjectId('64bd3ef65391ec1e4d122a53')
+    default: new mongoose.Types.ObjectId('64dcc80f78d5abc32e6161fc')
   },
   style: {
     type: String,
     default: ''
   },
-  abilities: [{
-    name: {
-      type: String,
-      default: ''
-    },
-    uses: {
-      type: Number,
-      default: 0
-    },
-    _id: false
-  }],
+  region: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Region',
+    default: new mongoose.Types.ObjectId('64ff1e89b54467e9c99031bb')
+  },
   description: {
-    race: {
+    gender: {
       type: String,
-      default: ''
+      default: 'Non binario'
     },
     age: {
       type: Number,
@@ -51,10 +54,6 @@ const characterSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-    lore: {
-      type: String,
-      default: ''
-    },
     skin: {
       type: String,
       default: ''
@@ -63,21 +62,15 @@ const characterSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
+    lore: {
+      type: String,
+      default: ''
+    },
     references: {
       type: [String],
       default: []
     }
   },
-  inventory: [{
-    item: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Item'
-    },
-    stacks: {
-      type: Number,
-      default: 0
-    }
-  }],
   statistics:{
     constitution: {
       type: Number,
@@ -115,11 +108,57 @@ const characterSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-    HPbase: {
+    ki: {
+      type: Number,
+      default: 0
+    },
+    miracles: {
+      type: Number,
+      default: 0
+    },
+  },
+  abilities: [{
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Ability',
+    },
+    uses: {
+      type: Number,
+      default: 0
+    },
+    status: {
+      type: Boolean,
+      default: false
+    }
+  }],
+  spells: [{
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Spell',
+    },
+    uses: {
+      type: Number,
+      default: 0
+    },
+    statis: {
+      type: Boolean,
+      default: false
+    }
+  }],
+  inventory: [{
+    item: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Item'
+    },
+    stacks: {
       type: Number,
       default: 0
     }
+  }],
+  upgradePoints: {
+    type: Number,
+    default: 0
   }
 });
 
-module.exports = mongoose.model('Characters', characterSchema);
+module.exports = mongoose.model('Character', characterSchema);

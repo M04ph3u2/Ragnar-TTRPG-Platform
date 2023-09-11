@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const itemsSchema = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     auto: true
@@ -8,34 +8,34 @@ const itemsSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    default: '' // Valore predefinito per il campo "name"
+    default: ''
   },
   canstack: {
     type: Boolean,
-    default: false // Imposta il valore predefinito a false (se non specificato)
+    default: false
   },
   description: {
     type: String,
-    default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+    default: ''
   },
   modifiers: [{
     type: {
       type: String,
-      default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+      default: ''
     },
     scaling: {
       type: String,
-      default: '' // Imposta il valore predefinito a una stringa vuota (se non specificato)
+      default: ''
     },
     maxscaling: {
       type: Number,
-      default: 0 // Imposta il valore predefinito a 0 (se non specificato)
+      default: 0
     },
     flat: {
       type: Number,
-      default: 0 // Imposta il valore predefinito a 0 (se non specificato)
+      default: 0
     }
   }]
 });
 
-module.exports = mongoose.model('Items', itemsSchema);
+module.exports = mongoose.model('Item', itemSchema);

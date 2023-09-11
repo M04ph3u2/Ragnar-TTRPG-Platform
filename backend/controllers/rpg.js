@@ -20,11 +20,27 @@ module.exports = {
 
   charaNew: async (req, res) => {
     try {
-      const {name, classId, style, abilities, race, age, eyes, hairs, height, lore, skin, weight, references, items, constitution, strength, dexterity, intelligence, wisdom, charisma, HP, HPmax, MP, HPbase} = req.body;
+      const {name, lvl, race, classId, style, region} = req.body;
+      const {gender, age, eyes, hairs, height, skin, weight, lore, references} = req.body;
+      const {constitution, strength, dexterity, intelligence, wisdom, charisma} = req.body;
+      const {abilities, spells, inventory} = req.body;
 
+      const classObj = await Class.find({_id: classId});
+      let ki = 0;
+      let miracles = 0;
+      if (classObj.name === "Paladin") {
+        miracles = 2;
+      } else if (classObj.name === "Monk") {
+        ki = 2;
+      }
+      
       let newAbilities;
       if (abilities) {
-        newAbilities = abilities.map((abilityName) => ({name: abilityName}));
+        newAbilities = abilities.map((abilityId) => ({id: abilityId}));
+      }
+      let newSpells;
+      if (spells) {
+        newSpells = abilities.map((spellId) => ({id: spellId}));
       }
       let newItems;
       if (items) {
@@ -33,21 +49,22 @@ module.exports = {
       
       const newCharacter = new Character({
         name: name,
-        class: new ObjectId (classId),
+        lvl: lvl,
+        race: new ObjectId (race),
+        classId: new ObjectId (classId),
         style: style,
-        abilities: newAbilities,
+        region: new ObjectId (region),
         description: {
-          race: race,
+          gender: gender,
           age: age,
           eyes: eyes,
           hairs: hairs,
           height: height,
-          lore: lore,
           skin: skin,
           weight: weight,
+          lore: lore,
           references: references
         },
-        inventory: newItems,
         statistics: {
           constitution: constitution,
           strength: strength,
@@ -55,11 +72,15 @@ module.exports = {
           intelligence: intelligence,
           wisdom: wisdom,
           charisma: charisma,
-          HP: HP,
-          HPmax: HPmax,
-          MP: MP,
-          HPbase: HPbase
-        }
+          HP: (classObj.statistics.baseHP + constitution),
+          HPmax: (classObj.statistics.baseHP + constitution),
+          MP: (intelligence*10),
+          ki: ki,
+          miracles: miracles
+        },
+        abilities: newAbilities,
+        spells: newSpells,
+        inventory: newItems
       });
 
       // Salva il nuovo personaggio nel database
@@ -86,7 +107,7 @@ module.exports = {
 
   classPrint: async (req, res) => {
     try {
-      const {abilityName, classId} = req.body;
+      const {classId} = req.body;
       const classObject = await Class.findOne({_id: classId});
       res.status(200).json(classObject);
     } catch (error) {

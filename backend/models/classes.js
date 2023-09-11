@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const classesSchema = new mongoose.Schema({
+const classSchema = new mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     auto: true
@@ -8,72 +8,72 @@ const classesSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    default: '' // Valore predefinito per il campo "name"
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
   },
   styles: [{
     name: {
       type: String,
-      default: '' // Valore predefinito per il campo "name" all'interno di "styles"
+      default: ''
     },
     description: {
       type: String,
-      default: '' // Valore predefinito per il campo "description" all'interno di "styles"
+      default: ''
+    },
+    abilities: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Ability'
     }
   }],
-  description: {
-    type: String,
-    default: '' // Valore predefinito per il campo "description"
-  },
   paths: [{
     name: {
       type: String,
-      default: '' // Valore predefinito per il campo "name" all'interno di "paths"
+      default: ''
     },
     abilities: [{
-      name: {
-        type: String,
-        default: '' // Valore predefinito per il campo "name" all'interno di "abilities"
-      },
-      type: {
-        type: String,
-        default: '' // Valore predefinito per il campo "type" all'interno di "abilities"
-      },
-      canlevel: {
-        type: Boolean,
-        default: false // Valore predefinito per il campo "canlevel" all'interno di "abilities"
-      },
       tier: {
         type: String,
-        default: '' // Valore predefinito per il campo "tier" all'interno di "abilities"
+        default: ''
       },
-      description: {
-        type: String,
-        default: '' // Valore predefinito per il campo "description" all'interno di "abilities"
-      },
-      levelsdescriptions: {
-        type: [String],
-        default: [] // Valore predefinito per il campo "levelsdescriptions" all'interno di "abilities"
-      },
-      modifiers: [{
-        type: {
-          type: String,
-          default: '' // Valore predefinito per il campo "type" all'interno di "modifiers"
-        },
-        flat: {
-          type: Number,
-          default: 0 // Valore predefinito per il campo "flat" all'interno di "modifiers"
-        },
-        scaling: {
-          type: Number,
-          default: 0 // Valore predefinito per il campo "scaling" all'interno di "modifiers"
-        },
-        maxscaling: {
-          type: Number,
-          default: 0 // Valore predefinito per il campo "maxscaling" all'interno di "modifiers"
-        }
-      }]
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Ability',
+      }
     }]
-  }]
+  }],
+  statistics:{
+    constitution: {
+      type: Number,
+      default: 0
+    },
+    strength: {
+      type: Number,
+      default: 0
+    },
+    dexterity: {
+      type: Number,
+      default: 0
+    },
+    intelligence: {
+      type: Number,
+      default: 0
+    },
+    wisdom: {
+      type: Number,
+      default: 0
+    },
+    charisma: {
+      type: Number,
+      default: 0
+    },
+    baseHP: {
+      type: Number,
+      default: 0
+    }
+  }
 });
 
-module.exports = mongoose.model('Classes', classesSchema);
+module.exports = mongoose.model('Class', classSchema);
