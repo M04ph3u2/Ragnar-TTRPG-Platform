@@ -118,7 +118,7 @@ const characterSchema = new mongoose.Schema({
     }
   },
   abilities: {
-    ids: [{
+    items: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ability',
     }],
@@ -132,7 +132,7 @@ const characterSchema = new mongoose.Schema({
     }
   },
   spells: {
-    ids: [{
+    items: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Spell'
     }],

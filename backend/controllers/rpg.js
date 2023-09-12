@@ -106,8 +106,8 @@ module.exports = {
         .populate('race')
         .populate('class')
         .populate('region')
-        .populate('abilities.ids')
-        .populate('spells.ids');
+        .populate('abilities.items')
+        .populate('spells.items');
       
       res.status(200).json(character);
     } catch (error) {
