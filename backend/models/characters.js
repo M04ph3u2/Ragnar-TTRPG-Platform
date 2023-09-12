@@ -19,7 +19,7 @@ const characterSchema = new mongoose.Schema({
     ref: 'Race',
     default: new mongoose.Types.ObjectId('64dcbeb278d5abc32e6161f7')
   },
-  classId: {
+  class: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
     default: new mongoose.Types.ObjectId('64dcc80f78d5abc32e6161fc')
@@ -31,7 +31,7 @@ const characterSchema = new mongoose.Schema({
   region: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Region',
-    default: new mongoose.Types.ObjectId('64ff1e89b54467e9c99031bb')
+    default: new mongoose.Types.ObjectId('65002cc6a6930460e8fc3830')
   },
   description: {
     gender: {
@@ -71,7 +71,7 @@ const characterSchema = new mongoose.Schema({
       default: []
     }
   },
-  statistics:{
+  statistics: {
     constitution: {
       type: Number,
       default: 0
@@ -115,36 +115,36 @@ const characterSchema = new mongoose.Schema({
     miracles: {
       type: Number,
       default: 0
-    },
+    }
   },
-  abilities: [{
-    id: {
+  abilities: {
+    ids: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ability',
-    },
+    }],
     uses: {
-      type: Number,
-      default: 0
+      type: [Number],
+      default: []
     },
-    status: {
-      type: Boolean,
-      default: false
+    statuses: {
+      type: [Boolean],
+      default: []
     }
-  }],
-  spells: [{
-    id: {
+  },
+  spells: {
+    ids: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Spell',
-    },
+      ref: 'Spell'
+    }],
     uses: {
-      type: Number,
-      default: 0
+      type: [Number],
+      default: []
     },
-    statis: {
-      type: Boolean,
-      default: false
+    statuses: {
+      type: [Boolean],
+      default: []
     }
-  }],
+  },
   inventory: [{
     item: {
       type: mongoose.Schema.Types.ObjectId,

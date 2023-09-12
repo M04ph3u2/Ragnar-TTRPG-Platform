@@ -1,5 +1,9 @@
+const Ability = require('../models/abilities.js');
 const Character = require('../models/characters.js');
 const Class = require('../models/classes.js');
+const Race = require('../models/races.js');
+const Region = require('../models/regions.js');
+const Spell = require('../models/spells.js');
 const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
@@ -97,7 +101,14 @@ module.exports = {
   sheetPrint: async (req, res) => {
     try {
       const {id} = req.body;
-      const character = await Character.findOne({_id: id});
+      const character = await Character
+        .findOne({_id: id})
+        .populate('race')
+        .populate('class')
+        .populate('region')
+        .populate('abilities.ids')
+        .populate('spells.ids');
+      
       res.status(200).json(character);
     } catch (error) {
       console.error('Error while retrieving the character sheet:', error);
