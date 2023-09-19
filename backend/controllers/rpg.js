@@ -8,17 +8,67 @@ const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
 
-  charaNames: async (req, res) => {
+  list: async (req, res) => {
     try {
-      const charas = await Character.find({});
+      let all;
+      switch (req.query.type) {
+        case 'characters':
+          all = await Character.find({});
+          break;
+        case 'classes':
+          all = await Class.find({});
+          break;
+        case 'regions':
+          all = await Region.find({});
+          break;
+        case 'races':
+          all = await Race.find({});
+          break;
+        default:
+          break;
+      }
       const names = [];
-      charas.forEach(chara => {
-        names.push({name: chara.name, id: chara._id});
+      all.forEach(one => {
+        if (one.name !== 'NULL'){
+          names.push({name: one.name, id: one._id});
+        }
       });
       res.status(200).json(names);
     } catch (error) {
-      console.error('Error while retrieving character sheets:', error);
-      return res.status(500).json({ message: 'Error while retrieving character sheets' });
+      console.error('Error while retrieving the list:', error);
+      return res.status(500).json({ message: 'Error while retrieving the list' });
+    }
+  },
+
+  print: async (req, res) => {
+    try {
+      const {id, type} = req.body;
+      let found;
+      switch (type) {
+        case 'character':
+          found = await Character.findOne({_id: id})
+            .populate('race')
+            .populate('class')
+            .populate('region')
+            .populate('abilities.items')
+            .populate('spells.items');
+          break;
+        case 'class':
+          found = await Class.findOne({_id: id});
+          break;
+        case 'region':
+          found = await Region.findOne({_id: id});
+          break;
+        case 'race':
+          found = await Race.findOne({_id: id});
+          break;
+        default:
+          break;
+      }
+      res.status(200).json(found);
+    } catch (error) {
+      console.error('Error while retrieving the data:', error);
+      return res.status(500).json({ message: 'Error while retrieving the data' });
     }
   },
 
@@ -95,35 +145,6 @@ module.exports = {
     } catch (error) {
       console.error('Error while creating and sending to db a new chatacter:', error);
       return res.status(500).json({ message: 'Error while creating and sending to db a new chatacter' });
-    }
-  },
-
-  sheetPrint: async (req, res) => {
-    try {
-      const {id} = req.body;
-      const character = await Character
-        .findOne({_id: id})
-        .populate('race')
-        .populate('class')
-        .populate('region')
-        .populate('abilities.items')
-        .populate('spells.items');
-      
-      res.status(200).json(character);
-    } catch (error) {
-      console.error('Error while retrieving the character sheet:', error);
-      return res.status(500).json({ message: 'Error while retrieving the character sheet' });
-    }
-  },
-
-  classPrint: async (req, res) => {
-    try {
-      const {classId} = req.body;
-      const classObject = await Class.findOne({_id: classId});
-      res.status(200).json(classObject);
-    } catch (error) {
-      console.error('Error while retrieving the class:', error);
-      return res.status(500).json({ message: 'Error while retrieving the class' });
     }
   }
   
