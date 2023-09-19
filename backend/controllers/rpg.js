@@ -29,9 +29,9 @@ module.exports = {
       }
       const names = [];
       all.forEach(one => {
-        if (one.name !== 'NULL'){
+        //if (one.name !== 'NULL'){
           names.push({name: one.name, id: one._id});
-        }
+        //}
       });
       res.status(200).json(names);
     } catch (error) {
@@ -45,7 +45,7 @@ module.exports = {
       const {id, type} = req.body;
       let found;
       switch (type) {
-        case 'character':
+        case 'characters':
           found = await Character.findOne({_id: id})
             .populate('race')
             .populate('class')
@@ -53,13 +53,14 @@ module.exports = {
             .populate('abilities.items')
             .populate('spells.items');
           break;
-        case 'class':
+        case 'classs':
           found = await Class.findOne({_id: id});
           break;
-        case 'region':
-          found = await Region.findOne({_id: id});
+        case 'regions':
+          found = await Region.findOne({_id: id})
+          .populate('races');
           break;
-        case 'race':
+        case 'races':
           found = await Race.findOne({_id: id});
           break;
         default:
