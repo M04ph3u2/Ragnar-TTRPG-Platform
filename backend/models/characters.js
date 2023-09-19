@@ -17,7 +17,7 @@ const characterSchema = new mongoose.Schema({
   race: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Race',
-    default: new mongoose.Types.ObjectId('64dcbeb278d5abc32e6161f7')
+    default: new mongoose.Types.ObjectId('6509e03ca44ab0dcb1afb522')
   },
   class: {
     type: mongoose.Schema.Types.ObjectId,

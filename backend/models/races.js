@@ -36,20 +36,16 @@ const raceSchema = new mongoose.Schema({
       default: 0
     }
   },
-  abilities: [{
-    id: {
+  abilities: {
+    items: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ability',
-    },
-    uses: {
-      type: Number,
-      default: 0
-    },
-    status: {
-      type: Boolean,
-      default: false
+    }],
+    lvlsToGet: {
+      type: [Number],
+      default: []
     }
-  }],
+  },
   description: {
     type: String,
     default: ''

@@ -61,7 +61,8 @@ module.exports = {
           .populate('races');
           break;
         case 'races':
-          found = await Race.findOne({_id: id});
+          found = await Race.findOne({_id: id})
+          .populate('abilities.items');
           break;
         default:
           break;
