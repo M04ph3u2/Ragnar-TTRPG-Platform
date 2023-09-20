@@ -2,7 +2,7 @@ const Ability = require('../models/abilities.js');
 const Character = require('../models/characters.js');
 const Class = require('../models/classes.js');
 const Race = require('../models/races.js');
-const Region = require('../models/regions.js');
+const State = require('../models/states.js');
 const Spell = require('../models/spells.js');
 const { ObjectId } = require('mongoose').Types;
 
@@ -18,8 +18,8 @@ module.exports = {
         case 'classes':
           all = await Class.find({});
           break;
-        case 'regions':
-          all = await Region.find({});
+        case 'states':
+          all = await State.find({});
           break;
         case 'races':
           all = await Race.find({});
@@ -49,15 +49,15 @@ module.exports = {
           found = await Character.findOne({_id: id})
             .populate('race')
             .populate('class')
-            .populate('region')
+            .populate('from')
             .populate('abilities.items')
             .populate('spells.items');
           break;
         case 'classs':
           found = await Class.findOne({_id: id});
           break;
-        case 'regions':
-          found = await Region.findOne({_id: id})
+        case 'states':
+          found = await State.findOne({_id: id})
           .populate('races');
           break;
         case 'races':
@@ -76,7 +76,7 @@ module.exports = {
 
   charaNew: async (req, res) => {
     try {
-      const {name, lvl, race, classId, style, region} = req.body;
+      const {name, lvl, race, classId, style, from} = req.body;
       const {gender, age, eyes, hairs, height, skin, weight, lore, references} = req.body;
       const {constitution, strength, dexterity, intelligence, wisdom, charisma} = req.body;
       const {abilities, spells, inventory} = req.body;
@@ -109,7 +109,7 @@ module.exports = {
         race: new ObjectId (race),
         classId: new ObjectId (classId),
         style: style,
-        region: new ObjectId (region),
+        from: new ObjectId (from),
         description: {
           gender: gender,
           age: age,

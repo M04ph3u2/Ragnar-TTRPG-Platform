@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const regionSchema = new mongoose.Schema({
+const stateSchema = new mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     auto: true
@@ -25,4 +25,4 @@ const regionSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Region', regionSchema);
+module.exports = mongoose.model('State', stateSchema);

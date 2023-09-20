@@ -28,9 +28,9 @@ const characterSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-  region: {
+  from: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Region',
+    ref: 'State',
     default: new mongoose.Types.ObjectId('65002cc6a6930460e8fc3830')
   },
   description: {
