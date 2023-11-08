@@ -8,7 +8,7 @@ const apiRouter = require('./apiRouter.js');
 
 // middleware
 app.use(cors({
-  origin: ['https://web-mern.m04ph3u2.repl.co/', 'https://heatpeakstudio.com/', '*'],
+  origin: ['https://heatpeakstudio.com/'],
   credentials: true
 }));
 app.use(express.json());
