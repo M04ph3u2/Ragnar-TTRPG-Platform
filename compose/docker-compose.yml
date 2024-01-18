@@ -1,0 +1,28 @@
+services:
+  hps-server:
+    container_name: hps-server
+    image: m04ph3u2/hps-server:latest
+
+  nginx:
+    container_name: nginx
+    restart: unless-stopped
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - hps-server
+
+  certbot:
+    container_name: certbot
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email st.sciacovelli@gmail.com -d heatpeakstudio.com -d www.heatpeakstudio.com --rsa-key-size 4096 --agree-tos --no-eff-email --staging
+    depends_on:
+      - nginx
