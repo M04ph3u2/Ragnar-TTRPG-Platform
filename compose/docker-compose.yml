@@ -3,6 +3,17 @@ services:
     container_name: hps-server
     image: m04ph3u2/hps-server:latest
 
+  db:
+    container_name: db
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hps
+      POSTGRES_PASSWORD: hps
+      POSTGRES_DB: hps
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
   nginx:
     container_name: nginx
     restart: unless-stopped
