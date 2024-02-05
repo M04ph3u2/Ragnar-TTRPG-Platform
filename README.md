@@ -8,7 +8,7 @@ The WebApp is associated with the HeatPeak Studio business website and is expect
 
 ## Repository Structure
 
-The repository contains previous implementations of the project in React and NodeJS within the legacy folder. The current version is developed with Angular and Spring Boot. You will also find Dockerfiles and a compose (for Docker Compose) folder to simplify server management and setup. The backend communicates with a PostgreSQL instance via Docker Compose on the same machine.
+The repository contains previous implementations of the project in React and NodeJS within the `legacy` folder. The current version is developed with Angular and Spring Boot. You will also find Dockerfiles and a `compose` (for Docker Compose) folder to simplify server management and setup. The backend communicates with a PostgreSQL instance via Docker Compose on the same machine.
 
 ## Continuous Integration / Continuous Deployment (CI/CD)
 
