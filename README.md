@@ -6,6 +6,31 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.x-green.svg)](https://www.mongodb.com/)
 [![Express](https://img.shields.io/badge/Express-4.x-black.svg)](https://expressjs.com/)
 
+## Table of Contents
+
+- [Overview](#overview)
+  - [Legacy Architecture Context](#legacy-architecture-context)
+- [Technology Stack](#technology-stack)
+  - [Backend (Node.js/Express)](#backend-nodejsexpress)
+  - [Frontend (React)](#frontend-react)
+  - [Database Design](#database-design)
+- [Project Structure](#project-structure)
+- [Core Features](#core-features)
+  - [Character Management System](#character-management-system)
+  - [AI-Generated Reference Image System](#ai-generated-reference-images-system)
+  - [Legacy Authentication](#legacy-authentication)
+  - [API Architecture](#api-architecture)
+- [Development Setup](#development-setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Architecture Evolution](#architecture-evolution)
+  - [From Legacy to Modern](#from-legacy-to-modern)
+- [Team and History](#team-and-history)
+  - [HeatPeak Studio Phase](#heatpeak-studio-phase)
+  - [Transition to JuggleHive Team Collaboration](#transition-to-jugglehive-team-collaboration)
+- [License](#license)
+- [Related Repositories](#related-repositories)
+
 ## Overview
 
 This repository represents the **legacy implementation** of the Ragnar TTRPG Platform, originally conceived as an innovative digital solution to revolutionize tabletop role-playing game experiences. The project was designed to create hybrid tools that would enhance both online and in-person gaming sessions, offering a superior alternative to existing market solutions through modern technology integration.
@@ -30,9 +55,10 @@ The `hp-main` branch demonstrates a traditional **MERN stack** approach (MongoDB
 
 - **Framework**: React 18.x with functional components and hooks
 - **Routing**: React Router DOM v6 for client-side navigation
-- **Styling**: Tailwind CSS with Material Tailwind components
+- **Styling**: Tailwind CSS with Material Tailwind components and Headless UI
 - **Build Tool**: Vite for fast development and optimized builds
 - **HTTP Client**: Axios for API communication
+- **TypeScript**: Basic TypeScript configuration for type checking
 
 ### Database Design
 
@@ -43,37 +69,66 @@ The `hp-main` branch demonstrates a traditional **MERN stack** approach (MongoDB
 
 ## Project Structure
 
-``` sh
+```text
 project-root/
 ├── backend/                    # Node.js/Express API server
-│   ├── app.js                 # Main Express application
+│   ├── app.js                 # Main Express application with security and CORS
+│   ├── apiRouter.js           # Central API routing hub
 │   ├── routes/
-│   │   ├── apiRouter.js       # Central API routing hub
+│   │   └── rpg.js            # RPG game mechanics routes
+│   ├── controllers/
 │   │   └── rpg.js            # RPG game mechanics controller
 │   ├── models/
-│   │   ├── characters.js      # MongoDB character schema
-│   │   ├── races.js          # Race definitions and traits
-│   │   └── states.js         # Game states and conditions
+│   │   ├── characters.js      # MongoDB character schema with Mongoose
+│   │   ├── races.js          # Race definitions and racial traits
+│   │   ├── states.js         # Game states and conditions
+│   │   ├── classes.js        # Character classes and progression
+│   │   ├── items.js          # Items and equipment
+│   │   ├── spells.js         # Spells and magical abilities
+│   │   └── abilities.js      # Abilities and skills
 │   ├── static/
 │   │   └── rpg/
 │   │       └── references/   # AI-generated reference images
-│   ├── middleware/            # Express middleware functions
-│   └── config/               # Database and server configuration
+│   │           ├── characters_*/  # Character reference images
+│   │           ├── races_*/      # Race illustration images  
+│   │           └── states_*/     # Game state visual icons
+│   ├── package.json          # Backend dependencies and scripts
+│   └── package-lock.json     # Backend dependency lock file
 ├── frontend/                  # React client application
 │   ├── src/
-│   │   ├── App.jsx           # Main application component
-│   │   ├── Main.jsx          # Landing page
+│   │   ├── App.jsx           # Main application component with routing
+│   │   ├── index.jsx         # React entry point and root render
+│   │   ├── Main.jsx          # Landing page (construction notice)
+│   │   ├── NotFoundPage.jsx  # 404 error page component
 │   │   └── routes/
-│   │       ├── Rpg.jsx       # RPG navigation hub
+│   │       ├── Rpg.jsx       # RPG navigation hub with dynamic loading
 │   │       └── rpg/          # RPG feature components
-│   │           ├── Sheets.jsx    # Character sheet viewer
-│   │           ├── Classes.jsx   # Character classes
-│   │           └── Showcase.jsx  # Races and states display
-│   ├── public/               # Static assets and index.html
-│   └── package.json          # Frontend dependencies
-├── database/                 # Database scripts and samples
-│   └── sample_data.sql      # Sample data for development
-└── README.md                # This documentation
+│   │           ├── Sheets.jsx    # Character sheet viewer and management
+│   │           ├── Classes.jsx   # Character classes and abilities
+│   │           ├── Showcase.jsx  # Races and states display component
+│   │           ├── Private.jsx   # Authentication and registration
+│   │           └── functions.js  # Utility functions for RPG mechanics
+│   ├── public/
+│   │   ├── construction-under-kipp.gif  # Construction page asset
+│   │   ├── logo.png          # Application logo
+│   │   └── logo.svg          # Application logo (SVG)
+│   ├── package.json          # Frontend dependencies and scripts
+│   ├── package-lock.json     # Frontend dependency lock file
+│   ├── vite.config.js        # Vite build configuration
+│   ├── vite.config.js.timestamp-*  # Vite config timestamps
+│   ├── tailwind.config.js    # TailwindCSS configuration
+│   ├── postcss.config.js     # PostCSS configuration
+│   ├── tsconfig.json         # TypeScript configuration
+│   ├── index.css             # Global CSS styles
+│   └── index.html            # Main HTML template
+├── .github/
+│   └── workflows/
+│       └── main.yml          # GitHub Actions CI/CD pipeline
+├── .gitignore                # Git ignore patterns
+├── package.json              # Root package.json for workspace
+├── package-lock.json         # npm lock file for consistent installs
+├── LICENSE.md                # Creative Commons license
+└── README.md                 # This documentation
 ```
 
 ## Core Features
@@ -134,9 +189,10 @@ This system allows the platform to provide rich visual context for TTRPG element
 ### API Architecture
 
 - **RESTful Design**: Standard HTTP methods with JSON responses
-- **Route Organization**: Centralized routing through `apiRouter.js`
+- **Route Organization**: Centralized routing through `apiRouter.js` with modular route files
+- **Controller Pattern**: Business logic separated in `controllers/` directory
 - **Error Handling**: Basic try-catch patterns with console logging
-- **CORS Configuration**: Permissive CORS for development flexibility
+- **CORS Configuration**: Configured for HeatPeak Studio domain (legacy)
 
 ## Development Setup
 
@@ -238,10 +294,11 @@ For commercial licensing inquiries, please contact the development team.
 
 ## Related Repositories
 
+- **hp-jh-transition**: Spring Boot/Angular transition implementation
 - **jh-main**: Modern Angular/.NET Core implementation
 - **jh-devops**: DevOps infrastructure and CI/CD pipelines  
 - **jh-cloud**: Cloud services and infrastructure as code
-- **hp-jh-transition**: Migration and transition utilities
+- **main**: Unified repository with historical context
 
 ---
 
