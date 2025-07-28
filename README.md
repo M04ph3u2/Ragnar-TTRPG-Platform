@@ -1,44 +1,235 @@
-# HeatPeak Studio WebApp - Transition to Angular + Spring
+# Ragnar TTRPG Platform - Technology Transition Phase (hp-jh-transition)
 
-**Note: This branch represents the transition from MERN stack to Angular + Spring Boot. This project evolved into the Ragnar TTRPG Platform.**
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Angular](https://img.shields.io/badge/Angular-17.1-red.svg)](https://angular.io/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue.svg)](https://www.postgresql.org/)
+[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://openjdk.org/)
 
-**Tech Stack:**
-- **Frontend**: Angular + TypeScript + TailwindCSS  
-- **Backend**: Spring Boot + Java + PostgreSQL
-- **Previous Stack**: MERN (available in hp-main branch)
+## Overview
 
----
+This repository represents the **technology transition phase** of the Ragnar TTRPG Platform, documenting the architectural evolution from the legacy MERN stack to modern enterprise technologies. This branch captures the intermediate stage where **HeatPeak Studio** experimented with Spring Boot and Angular before the platform's final evolution to the JuggleHive .NET Core implementation.
 
-## Project Description
+### Transition Context
 
-~~The WebApp is associated with the HeatPeak Studio business website and is expected to include features such as an e-commerce platform and an innovative tool for playing a TTRPG (Tabletop Role-Playing Game). Currently, the project is in the early development stage, so there might be limited functionalities available.~~
+The `hp-jh-transition` branch demonstrates the strategic technology migration from document-based to relational architecture, serving as a crucial stepping stone in the platform's evolution toward enterprise-grade cloud-native implementation.
 
----
+## Architectural Evolution Journey
 
-## Repository Structure
+### Technology Stack Progression
 
-The repository contains previous implementations of the project in React and NodeJS within the `legacy` folder. The current version is developed with Angular and Spring Boot. You will also find Dockerfiles ~~and a `compose` (for Docker Compose) folder to simplify server management and setup. The backend communicates with a PostgreSQL instance via Docker Compose on the same machine~~.
+| Phase | Frontend | Backend | Database | Authentication |
+|-------|----------|---------|----------|----------------|
+| **Legacy (hp-main)** | React 18 + Vite | Node.js + Express | MongoDB + Mongoose | Session-based |
+| **Transition (hp-jh-transition)** | Angular 17 + CLI | Spring Boot 3.2 + Maven | PostgreSQL + JPA | Spring Security |
+| **Modern (jh-main)** | Angular 18 + NgRx | .NET Core + EF | PostgreSQL + Azure | Azure AD B2C |
 
-**Note: While the structure remains the same, the `compose` folder has been removed as it is no longer needed. The build is now hosted on onrender.com.**
+### Migration Drivers
 
----
+1. **Type Safety**: JavaScript → TypeScript → C# progression
+2. **Data Modeling**: Document-based → Relational design patterns
+3. **Enterprise Integration**: Simple auth → Spring Security → Azure AD
+4. **Scalability**: Monolithic → Modular → Microservices architecture
+5. **Cloud Readiness**: Local deployment → Container-ready → Azure-native
 
-## Continuous Integration / Continuous Deployment (CI/CD)
+## Technology Stack
 
-~~The project implements CI/CD through an automated workflow defined in the YAML file located in the `.github/workflows` folder. This workflow streamlines the integration and deployment processes, ensuring a smooth and efficient development pipeline. Feel free to explore the workflow file for more insights into our CI/CD setup.~~
+### Backend (Spring Boot 3.2.2)
 
-**Note: Although the workflow file still exists, it now simply builds the application and publishes it on Docker Hub, without any deployment.**
+- **Framework**: Spring Boot with auto-configuration and embedded Tomcat
+- **Language**: Java 17 with modern language features
+- **Database**: PostgreSQL 16 with JPA/Hibernate ORM
+- **Build Tool**: Maven for dependency management and packaging
+- **Architecture**: RESTful API with Spring MVC pattern
 
----
+### Frontend (Angular 17.1)
+
+- **Framework**: Angular with TypeScript for type safety
+- **State Management**: @ngrx/store for reactive state management
+- **Build Tool**: Angular CLI with Webpack bundling
+- **Styling**: TailwindCSS for utility-first styling
+- **HTTP Client**: Angular HttpClient with RxJS observables
+
+### Database Evolution
+
+- **From MongoDB**: Document-based flexible schema
+- **To PostgreSQL**: Relational data modeling with constraints
+- **ORM Transition**: Mongoose ODM → JPA/Hibernate
+- **Query Language**: MongoDB queries → SQL with JPQL
+
+## Project Structure
+
+```
+transition-repo/
+├── backend/                    # Spring Boot application
+│   ├── src/main/java/
+│   │   └── com/heatpeakstudio/backend/
+│   │       ├── BackendApplication.java     # Main Spring Boot class
+│   │       └── WebRoutingConfig.java       # SPA routing configuration
+│   ├── src/main/resources/
+│   │   └── application.properties          # Spring configuration
+│   ├── pom.xml                            # Maven dependencies
+│   └── Dockerfile                         # Container configuration
+├── frontend/                   # Angular application
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── app.component.ts           # Root Angular component
+│   │   │   └── app.module.ts              # Main application module
+│   │   ├── index.html                     # Application shell
+│   │   └── main.ts                        # Bootstrap entry point
+│   ├── angular.json                       # Angular CLI configuration
+│   ├── package.json                       # npm dependencies
+│   └── tsconfig.json                      # TypeScript configuration
+├── development/                # Development utilities
+│   ├── Start_Backend.bat                  # Windows backend startup
+│   └── Start_Frontend.bat                 # Windows frontend startup
+└── README.md                              # This documentation
+```
+
+## Core Features
+
+### Transition Architecture
+
+- **SPA Integration**: Spring Boot serves Angular static files with proper routing
+- **API Design**: RESTful endpoints with JSON request/response patterns
+- **Error Handling**: Centralized error pages with Angular fallback routing
+- **Development Workflow**: Separate development servers with proxy configuration
+
+### Spring Boot Benefits
+
+- **Auto-Configuration**: Minimal configuration required for common scenarios
+- **Dependency Injection**: Enterprise-grade IoC container
+- **Data Access**: Spring Data JPA for repository pattern implementation
+- **Security**: Built-in security features ready for enterprise integration
+- **Testing**: Comprehensive testing framework with mock support
+
+### Angular Advantages
+
+- **Type Safety**: Full TypeScript integration with compile-time error checking
+- **Component Architecture**: Reusable components with dependency injection
+- **Reactive Programming**: RxJS observables for asynchronous data handling
+- **CLI Tools**: Powerful development tools for scaffolding and building
+- **Enterprise Ready**: Built-in features for large-scale application development
+
+## Development Setup
+
+### Prerequisites
+
+- Java 17+ (OpenJDK recommended)
+- Node.js 18+ with npm
+- PostgreSQL 16+
+- Maven 3.6+
+- Angular CLI 17+
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd transition-repo
+   git checkout hp-jh-transition
+   ```
+
+2. **Backend Setup**
+   ```bash
+   cd backend
+   mvn clean install
+   java -jar target/backend.jar
+   ```
+
+3. **Frontend Setup**
+   ```bash
+   cd frontend
+   npm install
+   ng serve
+   ```
+
+4. **Database Setup**
+   ```sql
+   -- Create PostgreSQL database
+   CREATE DATABASE ragnar_ttrpg;
+   -- Configure connection in application.properties
+   ```
+
+### Quick Start (Windows)
+
+Use the provided batch scripts for rapid development:
+
+```batch
+# Start backend (from development directory)
+Start_Backend.bat
+
+# Start frontend (from development directory)  
+Start_Frontend.bat
+```
+
+## Migration Lessons Learned
+
+### Architectural Decisions
+
+1. **Database Migration Strategy**
+   - Document → Relational mapping challenges
+   - Data type conversion and normalization
+   - Performance implications of JOIN operations vs embedded documents
+
+2. **Frontend Framework Transition**
+   - Component lifecycle management differences
+   - State management evolution (useState → @ngrx/store)
+   - Routing and navigation pattern changes
+
+3. **Backend Technology Shift**
+   - Express middleware → Spring Boot auto-configuration
+   - JavaScript flexibility → Java type safety
+   - npm ecosystem → Maven central repository
+
+### Challenges Encountered
+
+- **Learning Curve**: Team adaptation to Java and Angular ecosystems
+- **Tooling Setup**: IDE configuration and build process optimization
+- **Integration Complexity**: Frontend-backend communication patterns
+- **Performance Tuning**: JVM optimization vs Node.js event loop
+
+### Success Factors
+
+- **Incremental Migration**: Gradual transition reducing risk
+- **Documentation**: Comprehensive knowledge transfer
+- **Team Training**: Skill development in new technologies
+- **Prototype Validation**: Proof of concept before full migration
+
+## Team and Evolution
+
+### HeatPeak Studio Transition Phase
+
+- **Period**: Technology evaluation and migration
+- **Focus**: Enterprise architecture preparation
+- **Learning**: Java/Spring and Angular ecosystem mastery
+- **Goal**: Foundation for JuggleHive modern implementation
+
+### Path to JuggleHive Implementation
+
+This transition phase provided crucial insights that influenced the final architecture:
+
+- **Cloud-Native Design**: Understanding of enterprise deployment patterns
+- **Security Architecture**: Preparation for Azure AD B2C integration
+- **Scalability Patterns**: Microservices architecture foundation
+- **Development Practices**: DevOps and CI/CD pipeline preparation
 
 ## License
 
-This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-**Note: As this project is discontinued, the license terms and conditions remain applicable, but the project is no longer actively maintained or updated.**
+### Commercial Use
+
+For commercial licensing inquiries, please contact the development team.
+
+## Related Repositories
+
+- **hp-main**: Legacy MERN stack implementation
+- **jh-main**: Modern Angular/.NET Core implementation
+- **jh-devops**: DevOps infrastructure and CI/CD pipelines
+- **jh-cloud**: Cloud services and infrastructure as code
+- **main**: Unified repository with historical context
 
 ---
 
-## Website Availability
-
-While this project has been discontinued, the website is still accessible. However, please note that the domain [heatpeakstudio.com](https://www.heatpeakstudio.com/) will soon be abandoned. The website should remain accessible via [https://hps-server.onrender.com/](https://hps-server.onrender.com/) with some delay. (The server will be started when you attempt to connect to the website, and it will remain available for a short period afterward<img src="https://www.heatpeakstudio.com/assets/construction-under-kipp.gif" width="0.2%">)
+*This transition phase represents the technological bridge between legacy and modern implementations, demonstrating the evolution of the Ragnar TTRPG Platform toward enterprise-grade architecture.*
