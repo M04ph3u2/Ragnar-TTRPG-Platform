@@ -8,7 +8,9 @@
 
 ## Overview
 
-This repository represents the **legacy implementation** of the Ragnar TTRPG Platform, developed by **HeatPeak Studio** before the platform's evolution to the modern JuggleHive architecture. This version showcases the foundational work that led to the sophisticated cloud-native implementation available in the `jh-main` branch.
+This repository represents the **legacy implementation** of the Ragnar TTRPG Platform, originally conceived as an innovative digital solution to revolutionize tabletop role-playing game experiences. The project was designed to create hybrid tools that would enhance both online and in-person gaming sessions, offering a superior alternative to existing market solutions through modern technology integration.
+
+**Project Context**: This legacy implementation by **HeatPeak Studio** represents the foundational phase of what was intended to be a commercial TTRPG platform. After extensive development and multiple technical iterations, the ambitious scope of creating a complete market-ready solution proved challenging given available time and financial resources. The project has since been preserved and documented to showcase the technical evolution and development expertise achieved during its active development phase.
 
 ### Legacy Architecture Context
 
@@ -208,15 +210,19 @@ This legacy implementation served as the foundation for the modern platform, dem
 
 ### HeatPeak Studio Phase
 
-- **Period**: Initial development and concept validation
-- **Focus**: Core TTRPG mechanics and user interface
+- **Period**: Initial development and concept validation of the commercial TTRPG platform
+- **Developer**: **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) - Solo development
+- **Focus**: Core TTRPG mechanics, AI-generated imagery system, and user interface
 - **Social Media**: @heatpeakstudio on Instagram
-- **Architecture**: Traditional MERN stack approach
+- **Architecture**: Traditional MERN stack approach with MongoDB document modeling
 
-### Transition to JuggleHive
+### Transition to JuggleHive Team Collaboration
 
-The platform evolved to the JuggleHive team implementation with:
+The platform later evolved to include the full JuggleHive development team collaboration (visible in the `jh-main` branch) with:
 
+- **Davide Gritta**: Backend development and database design
+- **Gianluca Rossetti**: Full-stack development
+- **Stefano Sciacovelli**: DevOps infrastructure and automation
 - Cloud-native architecture on Azure
 - Enterprise authentication and security
 - Modern frontend frameworks and tools
