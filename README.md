@@ -32,13 +32,146 @@ web/
 
 **Purpose**: Manages HTTP/HTTPS traffic, terminates SSL connections, redirects HTTP to HTTPS, and handles ACME challenges for Certbot.
 
+**Configuration**: Located in `web/nginx.conf`
+
+- HTTP to HTTPS redirection (port 80 → 443)
+- SSL termination with Let's Encrypt certificates
+- Reverse proxy to Nextcloud container
+- ACME challenge handling for certificate validation
+- Security headers implementation
+- Rate limiting and DDoS protection
+- Static file serving optimization
+
+**Key Features**:
+
+- Automatic HTTP/HTTPS redirection
+- SSL certificate validation
+- Load balancing capabilities
+- Security headers (HSTS, CSP, etc.)
+- Access logging and monitoring
+- Custom error pages
+
 ### 2. Certbot (SSL Automation)
 
 **Purpose**: Automatically generates and renews SSL certificates using Let's Encrypt, integrates with Nginx for domain verification.
 
+**Automation Features**:
+
+- Automatic certificate generation on first run
+- Scheduled certificate renewal (90-day cycle)
+- Domain validation via HTTP-01 challenge
+- Nginx configuration integration
+- Certificate backup and restoration
+- Multi-domain support (SAN certificates)
+
+**Certificate Management**:
+
+- RSA 4096-bit key generation
+- Automatic certificate deployment
+- Renewal notifications and logging
+- Backup verification procedures
+- Emergency certificate recovery
+
 ### 3. Nextcloud (Cloud Storage)
 
 **Purpose**: Provides file storage, synchronization, user and permission management, and supports external databases (MySQL/MariaDB) for advanced performance and security.
+
+**Core Features**:
+
+- File storage and synchronization
+- User management and authentication
+- Group-based permissions system
+- External storage integration
+- App ecosystem support
+- Mobile and desktop client sync
+- WebDAV/CalDAV/CardDAV protocols
+
+**Enterprise Features**:
+
+- External database support (MySQL/PostgreSQL)
+- LDAP/Active Directory integration
+- Advanced security policies
+- Audit logging and compliance
+- Backup and restoration tools
+- High availability clustering
+
+## 🛠️ Deployment Guide
+
+### Prerequisites
+
+Before deploying the cloud infrastructure, ensure you have:
+
+- **Docker Engine** (version 20.10 or higher)
+- **Docker Compose** (version 2.0 or higher)
+- **Domain Name** with DNS pointing to your server
+- **SSL Certificate Email** for Let's Encrypt registration
+- **External Database** (MySQL/MariaDB recommended)
+- **Minimum System Requirements**:
+  - 2 CPU cores
+  - 4GB RAM
+  - 50GB storage space
+  - Open ports: 80 (HTTP), 443 (HTTPS)
+
+### Environment Setup
+
+1. **Clone the repository and navigate to the cloud branch**:
+
+```bash
+git clone https://github.com/M04ph3u2/Ragnar-TTRPG-Platform.git
+cd Ragnar-TTRPG-Platform
+git checkout jh-cloud
+```
+
+2. **Create environment configuration**:
+
+```bash
+# Create .env file with your configuration
+cat > .env << EOF
+DOMAIN=your-domain.com
+CERTBOT_EMAIL=admin@your-domain.com
+MYSQL_HOST=your-database-host
+MYSQL_DATABASE=nextcloud
+MYSQL_USER=nextcloud_user
+MYSQL_PASSWORD=secure_password
+NEXTCLOUD_ADMIN_USER=admin
+NEXTCLOUD_ADMIN_PASSWORD=secure_admin_password
+EOF
+```
+
+3. **Prepare data directories**:
+
+```bash
+mkdir -p ../data/{nextcloud,certbot}
+chmod 755 ../data/{nextcloud,certbot}
+```
+
+### Initial Deployment
+
+1. **Start the services**:
+
+```bash
+docker-compose up -d
+```
+
+2. **Verify SSL certificate generation**:
+
+```bash
+# Wait for certificate generation (may take 2-3 minutes)
+docker-compose logs certbot
+
+# Check certificate files
+ls -la ../data/certbot/conf/live/your-domain.com/
+```
+
+3. **Access Nextcloud setup**:
+
+```bash
+# Open your browser and navigate to:
+https://your-domain.com
+
+# Complete the Nextcloud setup wizard
+# Use the database credentials from your .env file
+```
 
 #### Supported Environment Variables
 
@@ -58,57 +191,49 @@ web/
 
 ## 🔒 Security
 
-- 4096-bit SSL certificates
-- Resource limits on all containers
-- External database to reduce attack surface
-- Regular updates recommended for images
+### SSL/TLS Configuration
 
-## 🛠️ Maintenance
+- **4096-bit RSA certificates** from Let's Encrypt
+- **TLS 1.2+ enforcement** with secure cipher suites
+- **HSTS (HTTP Strict Transport Security)** enabled
+- **Certificate transparency** logging
+- **Perfect Forward Secrecy** support
+- **OCSP Stapling** for certificate validation
 
-- Auto-renewed SSL certificates
-- Regular backups of the `../data` directory recommended
-- Monitor container logs for security events
-- Periodic image updates for security patches
+### Container Security
 
-## 📋 Monitoring and Troubleshooting
+- **Resource limits** on all containers to prevent DoS
+- **Non-root user execution** within containers
+- **Read-only filesystems** where applicable
+- **Network isolation** between services
+- **Security scanning** of base images
+- **Regular image updates** for security patches
 
-### Key Metrics
+### Application Security
 
-- **SSL Certificate Status**: Check certificate validity and renewal logs
-- **Nextcloud Health**: Monitor user access and file sync status
-- **Resource Usage**: Track container CPU/memory usage
+- **External database** to reduce attack surface
+- **Encrypted database connections** (SSL/TLS)
+- **Strong password policies** enforcement
+- **Two-factor authentication** support
+- **Brute force protection** mechanisms
+- **File access controls** and permissions
 
-### Common Issues and Solutions
+### Network Security
 
-#### 1. SSL Certificate Issues
+- **Firewall rules** for port restriction
+- **Rate limiting** to prevent abuse
+- **DDoS protection** mechanisms
+- **Security headers** implementation
+- **Access logging** for audit trails
+- **Intrusion detection** capabilities
 
-```bash
-# Check certificate status
-ls -la ../data/certbot/conf/live/
+### Data Protection
 
-# Force certificate renewal
-docker-compose run certbot renew
-```
-
-#### 2. Database Connection Issues
-
-```bash
-# Test database connectivity
-nc -zv $MYSQL_HOST 3306
-
-# Check database credentials
-env | grep MYSQL
-```
-
-#### 3. Nextcloud Backup Verification
-
-```bash
-# Check backup files
-ls -la ../data/nextcloud/
-
-# Verify backup integrity
-unzip -t ../data/nextcloud/nextcloud-$(date +%Y-%m-%d).zip
-```
+- **Encryption at rest** for sensitive data
+- **Encryption in transit** for all communications
+- **Backup encryption** with secure keys
+- **Data retention policies** implementation
+- **Audit logging** for compliance
 
 ## 📝 License
 
@@ -118,8 +243,8 @@ This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 I
 
 **Ragnar TTRPG Platform Development Team**:
 
-- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Platform Architecture
-- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Backend Integration
+- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
+- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer
 - **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
 
 ---
