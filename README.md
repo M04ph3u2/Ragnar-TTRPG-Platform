@@ -102,7 +102,7 @@ git checkout jh-cloud
 This unified repository was created by consolidating several separate repositories to preserve the complete architectural evolution of an ambitious TTRPG platform project:
 
 - **`hp-main`**: Original HeatPeak Studio MERN stack implementation by Stefano Sciacovelli
-- **`jh-main`**: JuggleHive modern implementation with collaborative development (Stefano Sciacovelli, Davide Peruzzi, Daniele Serasinghe)
+- **`jh-main`**: JuggleHive modern implementation with collaborative development (Stefano Sciacovelli, Davide Gritta, Gianluca Rossetti)
 - **`hp-jh-transition`**: Technology transition experimental phase by Stefano Sciacovelli
 - **`jh-devops`**: DevOps infrastructure management by Stefano Sciacovelli
 - **`jh-cloud`**: Cloud services configuration by Stefano Sciacovelli
@@ -110,8 +110,8 @@ This unified repository was created by consolidating several separate repositori
 ### Development Team
 
 - **Stefano Sciacovelli**: Lead developer and architect across all phases, solo contributor to most branches
-- **Davide Peruzzi**: Collaborative development on jh-main branch (modern implementation)
-- **Daniele Serasinghe**: Collaborative development on jh-main branch (modern implementation)
+- **Davide Gritta**: Collaborative development on jh-main branch (Backend Developer & Database Designer)
+- **Gianluca Rossetti**: Collaborative development on jh-main branch (Full-Stack Developer)
 
 ### Timeline of Evolution
 
