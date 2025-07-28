@@ -1,14 +1,10 @@
-# HeatPeak Studio WebApp (Discontinued)
+# HeatPeak Studio WebApp - Legacy Version
 
-<p align="center">
-  <a href="https://hps-server.onrender.com/">
-    <img src="./frontend/src/assets/logo.png" width="300px" alt="HeatPeakStudio Preview">
-  </a>
-  <br>
-  <i>Click the image to visit the website</i>
-</p>
+**Note: This is the legacy version with the original MERN stack (MongoDB, Express, React, Node.js). This project has been discontinued and evolved into the Ragnar TTRPG Platform.**
 
-**Note: This project has been discontinued. It is no longer actively maintained due to my departure from the project, as it has been integrated into another project under a new name.**
+**Tech Stack:**
+- **Frontend**: React + TypeScript + Vite + TailwindCSS
+- **Backend**: Node.js + Express + MongoDB
 
 ---
 
