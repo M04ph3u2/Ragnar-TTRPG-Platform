@@ -2,7 +2,9 @@
 
 ## Branch Overview: jh-main
 
-This branch contains the **main web application** for the Ragnar TTRPG Platform, representing the modern evolution from the legacy HeatPeak Studio system. Built with a sophisticated full-stack architecture, it demonstrates enterprise-level development practices with .NET Core, Angular, and Azure integration.
+This branch contains the **main web application** for the Ragnar TTRPG Platform, originally developed as an innovative digital tool to enhance tabletop role-playing game experiences. The project aimed to create a hybrid system that would improve both online and in-person gaming sessions through modern digital tools, providing a superior alternative to existing market solutions.
+
+**Project Evolution**: After extensive development efforts and multiple iterations, the original commercial vision proved challenging to complete due to time and resource constraints. The codebase has since been preserved and documented as a comprehensive portfolio piece, showcasing the technical evolution and enterprise-level development practices achieved during the project's active development phase.
 
 **Technical Evolution**: This application represents the culmination of the platform's technical evolution, transitioning from the legacy MongoDB-based system to a modern PostgreSQL architecture with advanced cloud integration.
 
@@ -20,25 +22,72 @@ The application follows a **modern full-stack architecture** with clear separati
 
 ``` sh
 jh-main/
+├── .github/                           # GitHub Actions CI/CD workflows
+│   └── workflows/
+│       └── buildndeploy.yml          # Automated build and deployment
 ├── JuggleHiveWebapp.Server/           # .NET Core API Server
-│   ├── Controllers/                   # API controllers for game entities
-│   ├── Models/                        # Entity models and database context
+│   ├── Controllers/                   # API controllers for game entities (23 files)
+│   ├── Models/                        # Entity models and database context (22 files)
 │   ├── Services/                      # Business logic and data services
+│   │   ├── Interfaces/               # Service interface definitions (22 files)
+│   │   └── [Service implementations] # Complete business layer (22 files)
+│   ├── Properties/
+│   │   └── launchSettings.json       # Development launch configuration
 │   ├── Program.cs                     # Application startup and configuration
-│   └── appsettings.json              # Server configuration
+│   ├── JuggleHiveWebapp.Server.csproj # MSBuild project file
+│   ├── JuggleHiveWebapp.Server.http  # HTTP client test requests
+│   ├── CHANGELOG.md                   # Server-specific changelog
+│   ├── .gitignore                     # Git exclusions for server artifacts
+│   ├── appsettings.json              # Production server configuration
+│   └── appsettings.Development.json  # Development server configuration
 ├── jugglehivewebapp.client/           # Angular Frontend Application
+│   ├── .vscode/                       # VS Code workspace configuration
+│   │   ├── extensions.json           # Recommended extensions
+│   │   ├── launch.json               # Debug configurations
+│   │   └── tasks.json                # Build and development tasks
 │   ├── src/
-│   │   ├── app/                       # Angular components and services
-│   │   ├── assets/                    # Static assets and images
-│   │   └── styles.css                 # Global styles with TailwindCSS
+│   │   ├── app/                       # Angular application core
+│   │   │   ├── components/           # UI component library
+│   │   │   │   └── general/          # General-purpose components
+│   │   │   ├── services/             # Angular services (2 files)
+│   │   │   ├── directives/           # Custom Angular directives (1 file)
+│   │   │   ├── app-routing.module.ts # Application routing
+│   │   │   ├── app.module.ts         # Main application module
+│   │   │   ├── app.domain.ts         # Domain type definitions
+│   │   │   └── app.component.*       # Root application component
+│   │   ├── index.html                # Main HTML template
+│   │   ├── main.ts                   # Angular bootstrap entry point
+│   │   ├── styles.css                # Global styles with TailwindCSS
+│   │   └── proxy.conf.js             # Development proxy configuration
+│   ├── public/                        # Static assets and resources
+│   │   ├── .gitkeep                  # Keep empty directory in git
+│   │   ├── favicon.ico               # Application favicon
+│   │   ├── logo.png                  # Application logo
+│   │   ├── navbar_logo.svg           # Navigation logo
+│   │   └── style.*.css               # Theme stylesheets (3 files)
 │   ├── angular.json                   # Angular CLI configuration
-│   ├── package.json                   # Node.js dependencies
-│   └── tailwind.config.js            # TailwindCSS configuration
+│   ├── package.json                   # Node.js dependencies and scripts
+│   ├── package-lock.json             # Dependency lock file
+│   ├── jugglehivewebapp.client.esproj # ES project file for .NET integration
+│   ├── tailwind.config.js            # TailwindCSS configuration
+│   ├── tsconfig.json                 # Main TypeScript configuration
+│   ├── tsconfig.app.json             # App-specific TypeScript config
+│   ├── tsconfig.spec.json            # Test-specific TypeScript config
+│   ├── karma.conf.js                 # Unit testing configuration
+│   ├── nuget.config                  # NuGet configuration for .NET integration
+│   ├── CHANGELOG.md                  # Client-specific changelog
+│   ├── README.md                     # Client-specific documentation
+│   ├── .editorconfig                 # Code formatting standards
+│   ├── .gitignore                    # Git exclusions for client artifacts
+│   └── aspnetcore-https.js           # HTTPS development certificate
 ├── database/                          # Database schema and sample data
 │   ├── ttrpg_postgres.sql            # PostgreSQL schema definition
 │   └── sample_data.sql               # Test data for development
 ├── JuggleHiveWebapp.sln              # Visual Studio solution file
-└── Dockerfile                        # Multi-stage Docker build configuration
+├── Dockerfile                        # Multi-stage Docker build configuration
+├── .dockerignore                     # Docker build exclusions
+├── .gitignore                        # Git exclusion patterns
+└── LICENSE.md                        # Project license (CC BY-NC-ND 4.0)
 ```
 
 ## 🚀 Application Components
@@ -272,9 +321,13 @@ This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 I
 
 **Ragnar TTRPG Platform Development Team**:
 
+This branch represents a collaborative effort by the complete development team:
+
 - **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
 - **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer  
 - **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
+
+**Note**: While all other branches (`hp-main`, `hp-jh-transition`, `jh-devops`, `jh-cloud`) were developed solely by [Stefano Sciacovelli](https://github.com/M04ph3u2), this `jh-main` branch benefited from the collaborative expertise of all three team members, representing the pinnacle of the project's technical achievement.
 
 ---
 
