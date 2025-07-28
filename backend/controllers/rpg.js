@@ -1,3 +1,28 @@
+/*
+ * RPG Controller - Legacy TTRPG Game Mechanics
+ * 
+ * This controller handles all TTRPG-related operations for the original HeatPeak Studio
+ * platform. It manages characters, classes, races, abilities, spells, and game states
+ * using MongoDB as the data store. This represents the initial implementation of the
+ * TTRPG system before the evolution to the modern PostgreSQL-based architecture.
+ * 
+ * Key Features:
+ * - Character management (CRUD operations)
+ * - Class and race system management
+ * - Spell and ability system handling
+ * - Game state management
+ * - MongoDB document-based data modeling
+ * 
+ * Architecture Notes:
+ * - Uses Mongoose ODM for MongoDB interactions
+ * - Single controller approach (later refactored into multiple controllers)
+ * - Direct database access (later abstracted through service layer)
+ * 
+ * Historical Context:
+ * This code represents the original "Ragnar" TTRPG concept implementation,
+ * showcasing the progression from prototype to enterprise architecture.
+ */
+
 const Ability = require('../models/abilities.js');
 const Character = require('../models/characters.js');
 const Class = require('../models/classes.js');
@@ -8,9 +33,16 @@ const { ObjectId } = require('mongoose').Types;
 
 module.exports = {
 
+  /**
+   * Generic list endpoint for retrieving collections of game entities
+   * Supports multiple entity types through query parameter switching
+   * @param {Object} req - Express request object with query.type parameter
+   * @param {Object} res - Express response object
+   */
   list: async (req, res) => {
     try {
       let all;
+      // Dynamic entity type selection based on query parameter
       switch (req.query.type) {
         case 'characters':
           all = await Character.find({});
@@ -27,9 +59,11 @@ module.exports = {
         default:
           break;
       }
+      
+      // Transform full documents to lightweight name/id pairs for UI dropdowns
       const names = [];
       all.forEach(one => {
-        //if (one.name !== 'NULL'){
+        //if (one.name !== 'NULL'){  // Legacy filtering logic
           names.push({name: one.name, id: one._id});
         //}
       });

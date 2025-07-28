@@ -1,26 +1,98 @@
+/**
+ * RAGNAR TTRPG PLATFORM - LEGACY CHARACTER SHEETS COMPONENT
+ * =========================================================
+ * 
+ * File: Sheets.jsx
+ * Purpose: Character sheet display and management interface
+ * 
+ * COMPONENT OVERVIEW:
+ * This component provides the user interface for viewing and managing
+ * character sheets in the legacy HeatPeak Studio implementation. It
+ * demonstrates the MongoDB-based approach to character data management
+ * with Axios HTTP client for API communication.
+ * 
+ * LEGACY ARCHITECTURE PATTERNS:
+ * - Direct HTTP requests with Axios (no request interceptors or caching)
+ * - Component-level state management with useState hooks
+ * - Manual error handling in HTTP requests
+ * - Dynamic API endpoint construction with window.origin
+ * - Simple dropdown selection pattern for character switching
+ * 
+ * DATA FLOW:
+ * 1. Component mounts and fetches character list from /api/rpg/list
+ * 2. Auto-selects first character and fetches detailed data via /api/rpg/print
+ * 3. User can switch characters through dropdown selection
+ * 4. Character data updates trigger re-rendering of character sheet display
+ * 
+ * API INTEGRATION:
+ * - GET /api/rpg/list?type=characters: Fetches list of available characters
+ * - POST /api/rpg/print: Retrieves detailed character data by ID
+ * 
+ * MODERN EVOLUTION COMPARISON:
+ * Current Angular implementation (jh-main) features:
+ * - HTTP interceptors for authentication and error handling
+ * - Reactive forms with real-time validation
+ * - NgRx state management for centralized character data
+ * - TypeScript interfaces for type safety
+ * - Angular Material components for consistent UI
+ * - Azure AD B2C integration for user authentication
+ * - PostgreSQL with Entity Framework for relational data modeling
+ * 
+ * Team: HeatPeak Studio (Legacy Implementation)
+ * Database: MongoDB with Mongoose ODM
+ * HTTP Client: Axios for REST API communication
+ */
+
 import React, { useState, useEffect } from "react";
 import { findAbility } from "./functions";
 import axios from "axios";
 
+/**
+ * CHARACTER SHEETS COMPONENT
+ * Provides interface for viewing and selecting character sheets
+ * 
+ * STATE MANAGEMENT:
+ * - options: Array of available characters from MongoDB
+ * - selectedOptionId: Currently selected character ID
+ * - selectedCharacter: Detailed character data for display
+ * 
+ * COMPONENT LIFECYCLE:
+ * 1. Mount: Fetch character list and auto-select first character
+ * 2. Selection: Update character details when dropdown selection changes
+ * 3. Display: Render character sheet with detailed information
+ */
 export default function Sheets() {
-  const [options, setOptions] = useState([]);
-  const [selectedOptionId, setSelectedOptionId] = useState();
-  const [selectedCharacter, setSelectedCharacter] = useState();
+  // Component state for character management
+  const [options, setOptions] = useState([]); // Available characters list
+  const [selectedOptionId, setSelectedOptionId] = useState(); // Selected character ID
+  const [selectedCharacter, setSelectedCharacter] = useState(); // Full character data
 
+  /**
+   * INITIAL DATA LOADING
+   * Fetches the list of available characters on component mount
+   * Auto-selects the first character for immediate display
+   */
   useEffect(() => {
     axios
       .get(window.origin + "/api/rpg/list?type=characters")
       .then((response) => {
         setOptions(response.data);
-        setSelectedOptionId(response.data[0].id); // Imposta solo l'ID come valore selezionato
+        setSelectedOptionId(response.data[0].id); // Auto-select first character
       })
       .catch((error) => {
         console.error("Errore nella richiesta GET:", error);
       });
   }, []);
 
+  /**
+   * CHARACTER DETAILS LOADING
+   * Fetches detailed character data when selection changes
+   * Uses POST request with character ID to retrieve full character sheet
+   */
   useEffect(() => {
-    // Utilizza selectedOptionId per ottenere il personaggio corretto
+    // Prevent API call if no character is selected
+    if (!selectedOptionId) return;
+    
     axios
       .post(window.origin + "/api/rpg/print", { id: selectedOptionId, type: 'characters' })
       .then((response) => {
@@ -31,12 +103,17 @@ export default function Sheets() {
       });
   }, [selectedOptionId]);
 
+  /**
+   * CHARACTER SELECTION HANDLER
+   * Updates selected character ID when user changes dropdown selection
+   */
   const handleSelectChange = (e) => {
-    setSelectedOptionId(e.target.value); // Aggiorna solo l'ID selezionato
+    setSelectedOptionId(e.target.value);
   };
 
   return (
     <div className="p-4">
+      {/* Character Selection Dropdown */}
       <select
         onChange={handleSelectChange}
         value={selectedOptionId}

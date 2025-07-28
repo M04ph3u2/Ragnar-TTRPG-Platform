@@ -1,3 +1,26 @@
+/*
+ * Character Model - Legacy MongoDB Schema Definition
+ * 
+ * This Mongoose model defines the character schema for the original HeatPeak Studio
+ * TTRPG platform. It represents the document-based approach to character data modeling
+ * before the transition to the relational PostgreSQL schema in the modern system.
+ * 
+ * Key Features:
+ * - MongoDB document structure with embedded subdocuments
+ * - Mongoose ODM with validation and default values
+ * - Reference relationships to races and classes
+ * - Complex nested structures for stats, equipment, and abilities
+ * 
+ * Schema Design:
+ * - Uses ObjectId references for relational data
+ * - Embeds frequently accessed data for performance
+ * - Supports flexible document structure evolution
+ * 
+ * Historical Context:
+ * This model shows the original character system design before the migration
+ * to normalized relational tables in the modern .NET/PostgreSQL architecture.
+ */
+
 const mongoose = require('mongoose');
 
 const characterSchema = new mongoose.Schema({
@@ -14,15 +37,17 @@ const characterSchema = new mongoose.Schema({
     type: Number,
     default: 1
   },
+  // Reference to Race document - shows early relational modeling in MongoDB
   race: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Race',
-    default: new mongoose.Types.ObjectId('6509e03ca44ab0dcb1afb522')
+    default: new mongoose.Types.ObjectId('6509e03ca44ab0dcb1afb522') // Default race ID
   },
+  // Reference to Class document - character archetype system
   class: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
-    default: new mongoose.Types.ObjectId('64dcc80f78d5abc32e6161fc')
+    default: new mongoose.Types.ObjectId('64dcc80f78d5abc32e6161fc') // Default class ID
   },
   style: {
     type: String,
