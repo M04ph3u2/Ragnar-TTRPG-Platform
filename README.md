@@ -1,5 +1,19 @@
 # Ragnar TTRPG Platform - Main Application
 
+## Table of Contents
+
+- [Branch Overview: jh-main](#branch-overview-jh-main)
+- [Architecture Overview](#architecture-overview)
+- [Project Structure](#project-structure)
+- [Application Components](#application-components)
+- [Development Setup](#development-setup)
+- [Technical Features](#technical-features)
+- [Docker Deployment](#docker-deployment)
+- [Game Mechanics Implementation](#game-mechanics-implementation)
+- [Security Implementation](#security-implementation)
+- [License](#license)
+- [Development Team](#development-team)
+
 ## Branch Overview: jh-main
 
 This branch contains the **main web application** for the Ragnar TTRPG Platform, originally developed as an innovative digital tool to enhance tabletop role-playing game experiences. The project aimed to create a hybrid system that would improve both online and in-person gaming sessions through modern digital tools, providing a superior alternative to existing market solutions.
