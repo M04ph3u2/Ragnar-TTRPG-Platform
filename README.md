@@ -50,3 +50,7 @@ Questi branch sono stati creati unificando diverse repository separate:
 - `jh-cloud`: da cloud/main
 
 Data di unificazione: $(date)
+
+## License
+
+This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
