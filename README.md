@@ -1,5 +1,29 @@
 # Ragnar TTRPG Platform - Cloud Infrastructure
 
+## Table of Contents
+
+- [Branch Overview: jh-cloud](#branch-overview-jh-cloud)
+- [Cloud Architecture Overview](#️-cloud-architecture-overview)
+- [Project Structure](#-project-structure)
+- [Service Architecture](#-service-architecture)
+  - [Service Status Overview](#service-status-overview)
+  - [Nginx (Reverse Proxy & SSL)](#1-nginx-reverse-proxy--ssl)
+  - [Certbot (SSL Automation)](#2-certbot-ssl-automation)
+  - [Nextcloud (Cloud Storage)](#3-nextcloud-cloud-storage)
+- [Deployment Guide](#️-deployment-guide)
+  - [Prerequisites](#prerequisites)
+  - [Environment Setup](#environment-setup)
+  - [Initial Deployment](#initial-deployment)
+- [Data Persistence](#️-data-persistence)
+- [Security](#-security)
+  - [SSL/TLS Configuration](#ssltls-configuration)
+  - [Container Security](#container-security)
+  - [Application Security](#application-security)
+  - [Network Security](#network-security)
+  - [Data Protection](#data-protection)
+- [License](#-license)
+- [Development Team](#-development-team)
+
 ## Branch Overview: jh-cloud
 
 This branch contains the **cloud infrastructure** for the Ragnar TTRPG Platform, originally designed to support file sharing, asset management, and collaborative features for an innovative digital tabletop role-playing game platform. The infrastructure was built to provide scalable, secure cloud storage and collaboration capabilities that would enhance both online and in-person gaming experiences through integrated digital tools.
@@ -19,9 +43,20 @@ The cloud infrastructure follows a modular architecture with the following compo
 ## 📁 Project Structure
 
 ```sh
-docker-compose.yml         # Main configuration for all services
-web/
-  nginx.conf               # Nginx configuration for reverse proxy and SSL
+.
+├── .env.example           # Environment variables template
+├── .github/               # GitHub Actions workflows
+│   └── workflows/         
+│       └── deploy.yml     # Automated deployment trigger
+├── docker-compose.yml     # Main production configuration for all services
+├── kickstart/             # Initial SSL certificate setup
+│   ├── docker-compose.yml # Kickstart configuration for certificate generation
+│   └── web/               
+│       └── nginx.conf     # Minimal nginx config for ACME challenges
+├── LICENSE.md             # Project license
+├── README.md              # This documentation
+└── web/                   
+    └── nginx.conf         # Production nginx configuration for reverse proxy and SSL
 ```
 
 ## 🚀 Service Architecture
@@ -31,6 +66,15 @@ web/
 - ✅ **Nginx** - **ACTIVE**: SSL termination & reverse proxy
 - ✅ **Certbot** - **ACTIVE**: Automated SSL certificate management
 - ✅ **Nextcloud** - **ACTIVE**: Cloud storage & collaboration
+
+### Automated Deployment
+
+The project includes a **GitHub Actions workflow** (`.github/workflows/deploy.yml`) that automatically triggers deployment when changes are pushed to the main branch. This workflow:
+
+- Triggers on push to `main` branch
+- Sends deployment signals to the target server
+- Integrates with the broader platform deployment pipeline
+- Supports both unit and integration testing phases
 
 ### 1. Nginx (Reverse Proxy & SSL)
 
@@ -116,6 +160,35 @@ Before deploying the cloud infrastructure, ensure you have:
   - 50GB storage space
   - Open ports: 80 (HTTP), 443 (HTTPS)
 
+### Initial SSL Certificate Setup (Kickstart)
+
+The project includes a **kickstart configuration** for initial SSL certificate generation. This is necessary because SSL certificates must exist before the main services can start.
+
+1. **Prepare the environment**:
+
+```bash
+# Create data directories
+mkdir -p ../data/{nextcloud,certbot}
+chmod 755 ../data/{nextcloud,certbot}
+
+# Create .env file (see Environment Setup section below)
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+2. **Generate initial SSL certificates**:
+
+```bash
+# Run the kickstart process to obtain SSL certificates
+docker-compose -f kickstart/docker-compose.yml up certbot
+
+# Verify certificate generation
+ls -la ../data/certbot/conf/live/cloud.$DOMAIN/
+
+# Stop kickstart services
+docker-compose -f kickstart/docker-compose.yml down
+```
+
 ### Environment Setup
 
 1. **Clone the repository and navigate to the cloud branch**:
@@ -126,20 +199,33 @@ cd Ragnar-TTRPG-Platform
 git checkout jh-cloud
 ```
 
-2. **Create environment configuration**:
+2. **Create environment configuration from template**:
 
 ```bash
-# Create .env file with your configuration
-cat > .env << EOF
+# Copy the example environment file
+cp .env.example .env
+
+# Edit the .env file with your configuration
+# The .env.example file contains detailed documentation for each variable
+nano .env
+```
+
+**Required Environment Variables** (see `.env.example` for detailed documentation):
+
+```bash
+# Domain configuration
 DOMAIN=your-domain.com
 CERTBOT_EMAIL=admin@your-domain.com
+
+# External database configuration
 MYSQL_HOST=your-database-host
 MYSQL_DATABASE=nextcloud
 MYSQL_USER=nextcloud_user
 MYSQL_PASSWORD=secure_password
+
+# Nextcloud admin account
 NEXTCLOUD_ADMIN_USER=admin
 NEXTCLOUD_ADMIN_PASSWORD=secure_admin_password
-EOF
 ```
 
 3. **Prepare data directories**:
@@ -176,17 +262,6 @@ https://your-domain.com
 # Complete the Nextcloud setup wizard
 # Use the database credentials from your .env file
 ```
-
-#### Supported Environment Variables
-
-- `DOMAIN`: Main domain (e.g., example.com)
-- `CERTBOT_EMAIL`: Email for Let's Encrypt registration
-- `MYSQL_HOST`: External database host
-- `MYSQL_DATABASE`: Database name
-- `MYSQL_USER`: Database user
-- `MYSQL_PASSWORD`: Database password
-- `NEXTCLOUD_ADMIN_USER`: Nextcloud admin user
-- `NEXTCLOUD_ADMIN_PASSWORD`: Nextcloud admin password
 
 ## 🗄️ Data Persistence
 
