@@ -2,7 +2,11 @@
 
 ## Branch Overview: jh-cloud
 
-This branch contains the **cloud infrastructure** for the Ragnar TTRPG Platform, designed and implemented by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)). It provides a scalable, secure, and automated solution for online storage and collaboration using Nextcloud, Nginx, and Certbot.
+This branch contains the **cloud infrastructure** for the Ragnar TTRPG Platform, originally designed to support file sharing, asset management, and collaborative features for an innovative digital tabletop role-playing game platform. The infrastructure was built to provide scalable, secure cloud storage and collaboration capabilities that would enhance both online and in-person gaming experiences through integrated digital tools.
+
+**Project Context**: This cloud infrastructure was developed as part of the broader vision to create a comprehensive TTRPG platform that would revolutionize how players interact with game content, share campaign materials, and collaborate on character development. When the ambitious scope of the complete commercial platform proved challenging within available resources, this cloud infrastructure was preserved to demonstrate enterprise-level cloud architecture and containerized deployment practices.
+
+**Implementation**: Designed and implemented solely by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)), this infrastructure showcases advanced Docker orchestration, automated SSL management, and production-ready cloud services integration using Nextcloud, Nginx, and Certbot.
 
 ## 🏗️ Cloud Architecture Overview
 
