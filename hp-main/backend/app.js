@@ -30,9 +30,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const apiRouter = require('./apiRouter.js');
 
+// Load environment variables from .env file
+const mongoURI = process.env.MONGODB_URI;
+
 // Security and parsing middleware configuration
 app.use(cors({
-  origin: ['https://heatpeakstudio.com/'], // Original HeatPeak Studio domain
+  origin: ["https://ragnar-legacy.onrender.com", "http://localhost"], // Allow specific origins
   credentials: true // Allow cookies and authentication headers
 }));
 app.use(express.json()); // Parse JSON request bodies
@@ -53,7 +56,7 @@ app.get('/*', (req, res) => {
 });
 
 // connect MongoDB
-mongoose.connect('mongodb+srv://???/RPG').then(() => {
+mongoose.connect(mongoURI).then(() => {
     const PORT = 4000;
     app.listen(PORT, () => {
         console.log(`App is Listening on PORT ${PORT}`);
