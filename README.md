@@ -8,7 +8,9 @@
 
 ## Overview
 
-This repository represents the **technology transition phase** of the Ragnar TTRPG Platform, documenting the architectural evolution from the legacy MERN stack to modern enterprise technologies. This branch captures the intermediate stage where **HeatPeak Studio** experimented with Spring Boot and Angular before the platform's final evolution to the JuggleHive .NET Core implementation.
+This repository represents the **technology transition phase** of the Ragnar TTRPG Platform, documenting the experimental architectural evolution during the active development of what was originally envisioned as a revolutionary digital TTRPG solution. This branch captures the intermediate stage where **HeatPeak Studio** explored enterprise technologies like Spring Boot and Angular, seeking to address the scalability and enterprise-readiness challenges identified in the initial MERN stack implementation.
+
+**Development Context**: This transition phase represents the technical exploration period when the original commercial platform vision was being refined and upgraded. The experimentation with Java/Spring Boot and Angular was part of the effort to create a more robust, enterprise-grade solution that could better serve the intended market of digital-enhanced tabletop gaming. While this direction showed promise, the project's scope and resource requirements eventually led to the decision to preserve the work as a comprehensive technical portfolio rather than pursue full commercial completion.
 
 ### Transition Context
 
@@ -200,19 +202,23 @@ Start_Frontend.bat
 
 ### HeatPeak Studio Transition Phase
 
-- **Period**: Technology evaluation and migration
-- **Focus**: Enterprise architecture preparation
-- **Learning**: Java/Spring and Angular ecosystem mastery
-- **Goal**: Foundation for JuggleHive modern implementation
+- **Developer**: **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) - Solo development
+- **Period**: Technology evaluation and migration experimentation
+- **Focus**: Enterprise architecture preparation and technology stack evaluation
+- **Learning**: Java/Spring Boot and Angular ecosystem mastery
+- **Goal**: Foundation for potential team collaboration in modern implementation
 
-### Path to JuggleHive Implementation
+### Path to JuggleHive Team Implementation
 
-This transition phase provided crucial insights that influenced the final architecture:
+This transition phase provided crucial insights that influenced the final collaborative architecture in `jh-main`:
 
+- **Technology Evaluation**: Assessment of Java/Spring vs .NET Core approaches
 - **Cloud-Native Design**: Understanding of enterprise deployment patterns
 - **Security Architecture**: Preparation for Azure AD B2C integration
 - **Scalability Patterns**: Microservices architecture foundation
 - **Development Practices**: DevOps and CI/CD pipeline preparation
+
+**Team Collaboration**: While this transition branch was developed solely by Stefano Sciacovelli, the insights gained directly contributed to the later collaborative effort in `jh-main` involving Davide Gritta (Backend/Database) and Gianluca Rossetti (Full-Stack Development).
 
 ## License
 
