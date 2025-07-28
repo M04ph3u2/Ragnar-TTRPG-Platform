@@ -10,7 +10,7 @@
 
 - [Overview](#overview)
   - [Legacy Architecture Context](#legacy-architecture-context)
-- [Live Demo](#-live-demo)
+- [Live Demo](#live-demo)
 - [Technology Stack](#technology-stack)
   - [Backend (Node.js/Express)](#backend-nodejsexpress)
   - [Frontend (React)](#frontend-react)
