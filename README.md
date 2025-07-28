@@ -33,7 +33,7 @@ The repository contains previous implementations of the project in React and Nod
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
 
 **Note: As this project is discontinued, the license terms and conditions remain applicable, but the project is no longer actively maintained or updated.**
 
