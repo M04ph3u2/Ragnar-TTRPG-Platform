@@ -8,7 +8,7 @@ This branch contains the **main web application** for the Ragnar TTRPG Platform,
 
 **Technical Evolution**: This application represents the culmination of the platform's technical evolution, transitioning from the legacy MongoDB-based system to a modern PostgreSQL architecture with advanced cloud integration.
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The application follows a **modern full-stack architecture** with clear separation of concerns:
 
@@ -18,7 +18,7 @@ The application follows a **modern full-stack architecture** with clear separati
 - **PostgreSQL Database**: Robust relational database with comprehensive TTRPG schema
 - **Docker Support**: Containerized deployment with multi-stage builds
 
-## 📁 Project Structure
+## Project Structure
 
 ``` sh
 jh-main/
@@ -90,7 +90,7 @@ jh-main/
 └── LICENSE.md                        # Project license (CC BY-NC-ND 4.0)
 ```
 
-## 🚀 Application Components
+## Application Components
 
 ### .NET Core API Server (`JuggleHiveWebapp.Server/`)
 
@@ -148,7 +148,7 @@ jh-main/
 - Class-based character development
 - Region and world-building entities
 
-## 🛠️ Development Setup
+## Development Setup
 
 ### Prerequisites
 
@@ -212,7 +212,7 @@ DATABASE_URL=postgresql://username:password@localhost/ragnar_ttrpg
 AZURE_STORAGE_CONNECTION_STRING=your_azure_connection_string
 ```
 
-## 🔧 Technical Features
+## Technical Features
 
 ### Advanced Architecture Patterns
 
@@ -258,7 +258,7 @@ AZURE_STORAGE_CONNECTION_STRING=your_azure_connection_string
 - **Async/Await Patterns**: Non-blocking operations
 - **Connection Pooling**: Database connection optimization
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Multi-Stage Build
 
@@ -277,7 +277,7 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 - **Security**: Non-root user execution
 - **Environment flexibility**: Runtime configuration
 
-## 📊 Game Mechanics Implementation
+## Game Mechanics Implementation
 
 ### Character Management System
 
@@ -298,7 +298,7 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 - **Classes**: Character archetypes with unique abilities
 - **Regions**: World locations and environmental factors
 
-## 🔒 Security Implementation
+## Security Implementation
 
 ### Application Security
 
@@ -313,11 +313,11 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 - **Docker Security**: Non-root container execution
 - **Azure Security**: Cloud-native security features
 
-## 📝 License
+## License
 
 This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
 
-## 👥 Development Team
+## Development Team
 
 **Ragnar TTRPG Platform Development Team**:
 
