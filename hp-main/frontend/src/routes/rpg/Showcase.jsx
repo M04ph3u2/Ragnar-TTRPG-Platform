@@ -11,7 +11,9 @@ export default function Showcase({ type }) {
       .get(window.origin + "/api/rpg/list?type=" + type)
       .then((response) => {
         setOptions(response.data);
-        setSelectedOptionId(response.data[0].id); // Imposta solo l'ID come valore selezionato
+        if (response.data && response.data.length > 0) {
+          setSelectedOptionId(response.data[0].id); // Imposta solo l'ID come valore selezionato
+        }
       })
       .catch((error) => {
         console.error("Errore nella richiesta GET:", error);
@@ -19,28 +21,40 @@ export default function Showcase({ type }) {
   }, [type]);
 
   useEffect(() => {
-    axios
-      .post(window.origin + "/api/rpg/print", {
-        id: selectedOptionId,
-        type: type,
-      })
-      .then((response) => {
-        setSelectedOption(response.data);
-      })
-      .catch((error) => {
-        console.error("Errore nella richiesta POST:", error);
-      });
+    if (selectedOptionId) {
+      axios
+        .post(window.origin + "/api/rpg/print", {
+          id: selectedOptionId,
+          type: type,
+        })
+        .then((response) => {
+          setSelectedOption(response.data);
+        })
+        .catch((error) => {
+          console.error("Errore nella richiesta POST:", error);
+        });
+    }
   }, [selectedOptionId]);
 
   const handleSelectChange = (e) => {
     setSelectedOptionId(e.target.value); // Aggiorna solo l'ID selezionato
   };
 
+  if (options.length === 0) {
+    return (
+      <div className="p-4">
+        <div className="text-center py-8">
+          <p className="text-gray-600">Caricamento dati {type}...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4">
       <select
         onChange={handleSelectChange}
-        value={selectedOptionId}
+        value={selectedOptionId || ''}
         className="w-full px-4 py-2 border rounded-full"
       >
         {options.map((option) => (
@@ -53,7 +67,7 @@ export default function Showcase({ type }) {
         <div className="w-1/3">
           {selectedOption && (
             <div className="bg-white rounded-lg shadow-lg p-4 max-h-[78vh] overflow-auto">
-              {selectedOption.references && (
+              {selectedOption.references && selectedOption.references.length > 0 && (
                 <div className="rounded-xl overflow-y-auto">
                   {selectedOption.references.map((image, index) => (
                     <div key={"reference_" + index} className="mb-4">
@@ -155,7 +169,9 @@ export default function Showcase({ type }) {
                       </div>
                     </div>
                   </div>
-                  {selectedOption.abilities.items[0] && (
+                  {selectedOption.abilities && 
+                   selectedOption.abilities.items && 
+                   selectedOption.abilities.items.length > 0 && (
                     <div className="mt-4">
                       <h2 className="text-xl font-semibold">
                         Lista abilità di razza (da rivedere)
@@ -165,17 +181,17 @@ export default function Showcase({ type }) {
                           (ability, index) => (
                             <div key={`Ability ${index}`} className="mt-2">
                               <p className="font-bold text-orange-500">
-                                {ability.name}
+                                {ability?.name || 'Nome non disponibile'}
                               </p>
                               <p>
                                 <span className="font-bold">
                                   Ottenibile al livello:
                                 </span>{" "}
-                                {selectedOption.abilities.lvlsToGet[index]}
+                                {selectedOption.abilities.lvlsToGet?.[index] || 'N/A'}
                               </p>
                               <p className="text-gray-600">
                                 <span className="font-bold">Descrizione:</span>{" "}
-                                {ability.description}
+                                {ability?.description || 'Descrizione non disponibile'}
                               </p>
                             </div>
                           ),
