@@ -18,7 +18,7 @@ The application follows a **modern full-stack architecture** with clear separati
 
 ## 📁 Project Structure
 
-```
+``` sh
 jh-main/
 ├── JuggleHiveWebapp.Server/           # .NET Core API Server
 │   ├── Controllers/                   # API controllers for game entities
@@ -48,6 +48,7 @@ jh-main/
 **Purpose**: Provides RESTful API endpoints for all TTRPG game mechanics and user management.
 
 **Key Features**:
+
 - **Entity Framework Core**: ORM with PostgreSQL integration
 - **CORS Configuration**: Secure cross-origin request handling
 - **Environment Variables**: Flexible configuration management
@@ -55,6 +56,7 @@ jh-main/
 - **RESTful Design**: Clean API endpoints following REST principles
 
 **Architecture Highlights**:
+
 - **Controllers**: Handle HTTP requests and responses
 - **Models**: Entity definitions matching database schema
 - **Services**: Business logic implementation
@@ -65,12 +67,14 @@ jh-main/
 **Purpose**: Modern single-page application providing the user interface for the TTRPG platform.
 
 **Technology Stack**:
+
 - **Angular 18**: Latest Angular framework with TypeScript
 - **TailwindCSS**: Utility-first CSS framework for rapid UI development
 - **HTTPS Development**: Secure development environment with SSL certificates
 - **Component Architecture**: Modular, reusable UI components
 
 **Key Features**:
+
 - **Responsive Design**: Mobile-first approach with TailwindCSS
 - **TypeScript**: Type-safe development with enhanced IDE support
 - **Angular CLI**: Modern build tools and development server
@@ -81,12 +85,14 @@ jh-main/
 **Purpose**: Comprehensive PostgreSQL schema designed for complex TTRPG game mechanics.
 
 **Database Features**:
+
 - **PostgreSQL Schema**: Robust relational database design
 - **TTRPG Entities**: Characters, skills, items, classes, regions
 - **Sample Data**: Development and testing data sets
 - **Referential Integrity**: Foreign key constraints and data validation
 
 **Schema Highlights**:
+
 - Character management with stats and progression
 - Skill trees and character abilities
 - Item system with inventory management
@@ -106,6 +112,7 @@ jh-main/
 ### Local Development
 
 1. **Clone and navigate to branch**:
+
 ```bash
 git clone https://github.com/M04ph3u2/Ragnar-TTRPG-Platform.git
 cd Ragnar-TTRPG-Platform
@@ -113,6 +120,7 @@ git checkout jh-main
 ```
 
 2. **Database Setup**:
+
 ```bash
 # Create PostgreSQL database
 createdb ragnar_ttrpg
@@ -125,6 +133,7 @@ psql -d ragnar_ttrpg -f database/sample_data.sql
 ```
 
 3. **Backend Setup**:
+
 ```bash
 cd JuggleHiveWebapp.Server
 dotnet restore
@@ -132,6 +141,7 @@ dotnet run
 ```
 
 4. **Frontend Setup**:
+
 ```bash
 cd jugglehivewebapp.client
 npm install
@@ -139,12 +149,14 @@ npm start
 ```
 
 5. **Access Application**:
+
 - Frontend: `https://localhost:4200`
 - API: `https://localhost:7154`
 
 ### Environment Configuration
 
 Create a `.env` file in the server directory:
+
 ```bash
 DOMAIN=localhost
 DATABASE_URL=postgresql://username:password@localhost/ragnar_ttrpg
@@ -156,12 +168,14 @@ AZURE_STORAGE_CONNECTION_STRING=your_azure_connection_string
 ### Advanced Architecture Patterns
 
 **Server-Side**:
+
 - **Repository Pattern**: Data access abstraction
 - **Dependency Injection**: Loosely coupled components
 - **Entity Framework Core**: Code-first database approach
 - **Configuration Management**: Environment-based settings
 
 **Client-Side**:
+
 - **Component-Based Architecture**: Reusable UI components
 - **Service Architecture**: Centralized business logic
 - **Reactive Programming**: RxJS for asynchronous operations
@@ -170,11 +184,13 @@ AZURE_STORAGE_CONNECTION_STRING=your_azure_connection_string
 ### Azure Cloud Integration
 
 **Storage Services**:
+
 - **Azure Blob Storage**: File and image management
 - **Azure SQL Database**: Production database hosting
 - **Azure App Service**: Web application hosting
 
 **Security Features**:
+
 - **Environment Variables**: Secure configuration management
 - **CORS Policies**: Cross-origin security
 - **HTTPS Enforcement**: Secure communication protocols
@@ -182,11 +198,13 @@ AZURE_STORAGE_CONNECTION_STRING=your_azure_connection_string
 ### Performance Optimizations
 
 **Frontend**:
+
 - **Lazy Loading**: Efficient module loading
 - **Tree Shaking**: Minimal bundle sizes
 - **AOT Compilation**: Ahead-of-time compilation for performance
 
 **Backend**:
+
 - **Entity Framework Optimization**: Efficient database queries
 - **Async/Await Patterns**: Non-blocking operations
 - **Connection Pooling**: Database connection optimization
@@ -204,6 +222,7 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 ```
 
 **Docker Features**:
+
 - **Multi-stage build**: Separate build and runtime environments
 - **Optimized layers**: Minimal production image size
 - **Security**: Non-root user execution
@@ -214,6 +233,7 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 ### Character Management System
 
 **Features**:
+
 - **Character Creation**: Race, class, and stat selection
 - **Progression System**: Level-based character advancement
 - **Skill Trees**: Complex ability progression
@@ -222,6 +242,7 @@ docker run -p 80:8080 ragnar-ttrpg-platform
 ### Database Design
 
 **Core Entities**:
+
 - **Characters**: Player character data and progression
 - **Skills**: Ability system with prerequisites and effects
 - **Items**: Equipment, consumables, and treasure
