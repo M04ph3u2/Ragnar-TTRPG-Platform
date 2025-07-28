@@ -1,11 +1,6 @@
 # Ragnar TTRPG Platform - Cloud Infrastructure
 
-## Table└── README.md              # This documentation
-```
-
-## Service Architecture
-
-### Service Status Overviewof Contents
+## Table of Contents
 
 - [Branch Overview: jh-cloud](#branch-overview-jh-cloud)
 - [Cloud Architecture Overview](#cloud-architecture-overview)
