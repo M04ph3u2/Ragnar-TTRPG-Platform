@@ -349,170 +349,27 @@ The DevOps system can deploy code from any repository in the organization:
 
 ### Triggering Deployments
 
-#### Via GitHub API
-
-```bash
-curl -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/owner/ragnar-ttrpg-platform/dispatches \
-  -d '{
-    "event_type": "jugglehive-deploy",
-    "client_payload": {
-      "service": "target-repository",
-      "server": "your-server.example.com"
-    }
-  }'
-```
-
-#### Via GitHub Actions Workflow
-
-```yaml
-- name: Trigger Deployment
-  uses: peter-evans/repository-dispatch@v2
-  with:
-    token: ${{ secrets.REPO_ACCESS_TOKEN }}
-    repository: owner/ragnar-ttrpg-platform
-    event-type: jugglehive-deploy
-    client-payload: |
-      {
-        "service": "target-service",
-        "server": "production-server.example.com"
-      }
-```
+Deployments are triggered via GitHub repository dispatch with the `jugglehive-deploy` event type. The system supports multiple services and server targets through payload configuration.
 
 ### Manual VM Management
 
-#### Start VMs
+VMs can be started and stopped using repository dispatch events for cost optimization and maintenance scheduling. Monitor deployments through GitHub Actions interface.
 
-```bash
-# Trigger via repository dispatch
-curl -X POST \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  https://api.github.com/repos/owner/ragnar-ttrpg-platform/dispatches \
-  -d '{"event_type": "jugglehive-disabled"}'
-```
-
-#### Monitor Deployments
-
-```bash
-# Check workflow status
-gh run list --workflow=deploy.yml
-
-# View deployment logs
-gh run view --log
-```
-
-## 📋 Monitoring and Troubleshooting
+## 📋 Monitoring and Security
 
 ### Deployment Monitoring
 
-#### Key Metrics
+Key metrics include deployment duration, success rates, and resource utilization. Logs are accessible through GitHub Actions interface and SSH server access.
 
-- **Deployment Duration**: Track deployment time trends
-- **Success Rate**: Monitor deployment success/failure rates
-- **Resource Usage**: VM resource utilization during deployments
+### Security Features
 
-#### Log Analysis
+- **Access Control**: Principle of least privilege with secure key management
+- **Operational Security**: Audit logging, secret rotation, and encrypted backups
+- **Compliance**: Automated retention policies and complete audit trails
 
-```bash
-# View deployment logs
-gh run view [RUN_ID] --log
+### Integration Ecosystem
 
-# Check server logs
-ssh user@server "sudo journalctl -u docker"
-
-# Monitor container logs
-ssh user@server "cd /root/docker && sudo docker-compose logs -f"
-```
-
-### Common Issues and Solutions
-
-#### 1. SSL Certificate Issues
-
-```bash
-# Check certificate status
-ssh user@server "sudo ls -la /root/data/certbot/conf/live/"
-
-# Force certificate renewal
-ssh user@server "cd /root/docker/kickstart && sudo docker-compose up certbot"
-```
-
-#### 2. Database Connection Issues
-
-```bash
-# Test database connectivity
-ssh user@server "nc -zv $MYSQL_HOST 3306"
-
-# Check database credentials
-ssh user@server "env | grep MYSQL"
-```
-
-#### 3. Container Registry Authentication
-
-```bash
-# Re-authenticate with GitHub Container Registry
-echo "$GITHUB_TOKEN" | docker login ghcr.io -u username --password-stdin
-```
-
-#### 4. Backup Verification
-
-```bash
-# Check backup files
-ssh user@server "ls -la /root/azurestorage/backup/"
-
-# Verify backup integrity
-ssh user@server "unzip -t /root/azurestorage/backup/nextcloud-$(date +%Y-%m-%d).zip"
-```
-
-## 🔒 Security Best Practices
-
-### Access Control
-
-- **Principle of Least Privilege**: Secrets have minimal required permissions
-- **Secure Key Management**: SSH keys and tokens stored in GitHub Secrets
-- **Network Security**: SSH-based server access with key authentication
-
-### Operational Security
-
-- **Audit Logging**: All deployment actions logged in GitHub Actions
-- **Secret Rotation**: Regular rotation of access tokens and keys
-- **Backup Encryption**: Encrypted backup storage in Azure
-- **Secure Transfer**: SSH-based file transfers and remote execution
-
-### Compliance
-
-- **Data Retention**: Automated backup retention policies
-- **Access Logging**: Complete audit trail of all operations
-- **Change Management**: Git-based change tracking for all configurations
-
-## 🌐 Integration Ecosystem
-
-This DevOps infrastructure integrates with:
-
-- **GitHub Container Registry**: For container image management
-- **Azure Cloud Services**: VM and storage management
-- **Docker Compose**: Container orchestration
-- **Let's Encrypt**: SSL certificate automation
-- **MySQL/PostgreSQL**: Database backup and management
-- **Nextcloud**: Application-specific backup procedures
-
-## 📚 Additional Resources
-
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/)
-- [Docker Compose Reference](https://docs.docker.com/compose/)
-- [Repository Dispatch API](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event)
-
-## 🤝 Contributing
-
-This DevOps infrastructure is part of the larger Ragnar TTRPG Platform project. For contributions:
-
-1. Fork the repository
-2. Create a feature branch for DevOps improvements
-3. Test changes in staging environment
-4. Submit pull request with detailed description
-5. Ensure all security checks pass
+Integrates with GitHub Container Registry, Azure Cloud Services, Docker Compose, Let's Encrypt, and database management systems.
 
 ## 📝 License
 
