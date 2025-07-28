@@ -1,3 +1,10 @@
+-- Sample Data for Ragnar TTRPG Platform
+-- This file contains test/example data for development and testing purposes
+-- Run this after creating the database schema with ttrpg_postgres.sql
+-- 
+-- Usage: Execute these INSERT statements to populate the database with sample entities
+--        for testing the TTRPG game mechanics and application functionality
+
 -- Insert into skill_family
 INSERT INTO ttrpg.skill_family (id) VALUES (1), (2), (3);
 
