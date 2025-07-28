@@ -1,5 +1,32 @@
 # Ragnar TTRPG Platform - DevOps Infrastructure
 
+## Table of Contents
+
+- [Branch Overview: jh-devops](#branch-overview-jh-devops)
+- [🏗️ DevOps Architecture Overview](#️-devops-architecture-overview)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Workflow Architecture](#-workflow-architecture)
+  - [Workflow Status Overview](#workflow-status-overview)
+  - [1. Deployment Workflow (`deploy.yml`)](#1-deployment-workflow-deployyml)
+  - [2. VM Start Workflow (`startvm.yml`)](#2-vm-start-workflow-startvmyml)
+  - [3. VM Stop & Backup Workflow (`stopvm.yml`)](#3-vm-stop--backup-workflow-stopvmyml)
+- [🐳 Docker Infrastructure](#-docker-infrastructure)
+  - [Docker Configuration Architecture](#docker-configuration-architecture)
+- [🛠️ Infrastructure Setup Scripts](#️-infrastructure-setup-scripts)
+  - [Server Provisioning Script (`scripts/terraform.sh`)](#server-provisioning-script-scriptsterraformsh)
+- [🔧 Configuration Details](#-configuration-details)
+  - [Repository Dispatch Integration](#repository-dispatch-integration)
+  - [Azure Integration](#azure-integration)
+  - [Security Configuration](#security-configuration)
+- [🛠️ Advanced Features](#️-advanced-features)
+  - [Multi-Repository Orchestration](#multi-repository-orchestration)
+  - [Intelligent Deployment Logic](#intelligent-deployment-logic)
+  - [Backup and Recovery](#backup-and-recovery)
+- [🚀 Usage Instructions](#-usage-instructions)
+- [📋 Monitoring and Security](#-monitoring-and-security)
+- [📝 License](#-license)
+- [👥 Development Team](#-development-team)
+
 ## Branch Overview: jh-devops
 
 This branch contains the **DevOps infrastructure** and CI/CD pipeline configuration for the Ragnar TTRPG Platform, originally developed to support the deployment and operations of an innovative digital tabletop role-playing game solution. The infrastructure was designed to handle the scalable deployment requirements of what was intended to be a commercial platform serving hybrid online/offline gaming experiences.
