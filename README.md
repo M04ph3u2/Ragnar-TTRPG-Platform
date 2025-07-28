@@ -3,29 +3,29 @@
 ## Table of Contents
 
 - [Branch Overview: jh-devops](#branch-overview-jh-devops)
-- [🏗️ DevOps Architecture Overview](#️-devops-architecture-overview)
-- [📁 Project Structure](#-project-structure)
-- [🚀 Workflow Architecture](#-workflow-architecture)
+- [DevOps Architecture Overview](#devops-architecture-overview)
+- [Project Structure](#project-structure)
+- [Workflow Architecture](#workflow-architecture)
   - [Workflow Status Overview](#workflow-status-overview)
   - [1. Deployment Workflow (`deploy.yml`)](#1-deployment-workflow-deployyml)
   - [2. VM Start Workflow (`startvm.yml`)](#2-vm-start-workflow-startvmyml)
   - [3. VM Stop & Backup Workflow (`stopvm.yml`)](#3-vm-stop--backup-workflow-stopvmyml)
-- [🐳 Docker Infrastructure](#-docker-infrastructure)
+- [Docker Infrastructure](#docker-infrastructure)
   - [Docker Configuration Architecture](#docker-configuration-architecture)
-- [🛠️ Infrastructure Setup Scripts](#️-infrastructure-setup-scripts)
+- [Infrastructure Setup Scripts](#infrastructure-setup-scripts)
   - [Server Provisioning Script (`scripts/terraform.sh`)](#server-provisioning-script-scriptsterraformsh)
-- [🔧 Configuration Details](#-configuration-details)
+- [Configuration Details](#configuration-details)
   - [Repository Dispatch Integration](#repository-dispatch-integration)
   - [Azure Integration](#azure-integration)
   - [Security Configuration](#security-configuration)
-- [🛠️ Advanced Features](#️-advanced-features)
+- [Advanced Features](#advanced-features)
   - [Multi-Repository Orchestration](#multi-repository-orchestration)
   - [Intelligent Deployment Logic](#intelligent-deployment-logic)
   - [Backup and Recovery](#backup-and-recovery)
-- [🚀 Usage Instructions](#-usage-instructions)
-- [📋 Monitoring and Security](#-monitoring-and-security)
-- [📝 License](#-license)
-- [👥 Development Team](#-development-team)
+- [Usage Instructions](#usage-instructions)
+- [Monitoring and Security](#monitoring-and-security)
+- [License](#license)
+- [Development Team](#development-team)
 
 ## Branch Overview: jh-devops
 
@@ -35,7 +35,7 @@ This branch contains the **DevOps infrastructure** and CI/CD pipeline configurat
 
 **DevOps Implementation**: This infrastructure was designed and implemented solely by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) as part of the platform's deployment automation requirements, showcasing advanced CI/CD pipeline orchestration and Azure cloud management capabilities.
 
-## 🏗️ DevOps Architecture Overview
+## DevOps Architecture Overview
 
 The DevOps infrastructure follows a **distributed microservices orchestration pattern** with the following components:
 
@@ -45,7 +45,7 @@ The DevOps infrastructure follows a **distributed microservices orchestration pa
 - **Automated Backup System**: Database and file system backup with retention policies
 - **Environment Management**: Secure secrets management and environment configuration
 
-## 📁 Project Structure
+## Project Structure
 
 ``` sh
 jh-devops/
@@ -67,13 +67,13 @@ jh-devops/
 └── README.md                   # This documentation file
 ```
 
-## 🚀 Workflow Architecture
+## Workflow Architecture
 
 ### Workflow Status Overview
 
 - ✅ **deploy.yml** - **ACTIVE**: Ready for deployment operations
-- ⏸️ **startvm.yml** - **DISABLED**: VM startup automation disabled  
-- ⏸️ **stopvm.yml** - **DISABLED**: Scheduled backup and shutdown disabled
+- **startvm.yml** - **DISABLED**: VM startup automation disabled  
+- **stopvm.yml** - **DISABLED**: Scheduled backup and shutdown disabled
 
 ### 1. Deployment Workflow (`deploy.yml`)
 
@@ -157,7 +157,7 @@ jh-devops/
 - **Automated Retention**: Self-managing backup lifecycle
 - **Azure Storage Integration**: Offsite backup storage
 
-## 🐳 Docker Infrastructure
+## Docker Infrastructure
 
 ### Docker Configuration Architecture
 
@@ -210,7 +210,7 @@ The `docker/` directory contains a comprehensive containerization setup with SSL
 - **ACME Support**: Dedicated challenge handling endpoint
 - **Domain Validation**: Proves ownership for certificate issuance
 
-## 🛠️ Infrastructure Setup Scripts
+## Infrastructure Setup Scripts
 
 ### Server Provisioning Script (`scripts/terraform.sh`)
 
@@ -273,7 +273,7 @@ sudo ./scripts/terraform.sh
 - Database clients ready for backup operations
 - System ready for containerized application deployment
 
-## 🔧 Configuration Details
+## Configuration Details
 
 ### Repository Dispatch Integration
 
@@ -335,7 +335,7 @@ The system requires the following GitHub repository secrets:
 - `GITHUB_TOKEN`: GitHub personal access token for container registry
 - `CONTENTS_PAT`: Personal access token with repository contents permissions
 
-## 🛠️ Advanced Features
+## Advanced Features
 
 ### Multi-Repository Orchestration
 
@@ -374,7 +374,7 @@ The DevOps system can deploy code from any repository in the organization:
 - **Offsite Storage**: Azure Storage integration for disaster recovery
 - **Retention Policies**: Automated cleanup prevents storage overflow
 
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### Triggering Deployments
 
@@ -384,7 +384,7 @@ Deployments are triggered via GitHub repository dispatch with the `jugglehive-de
 
 VMs can be started and stopped using repository dispatch events for cost optimization and maintenance scheduling. Monitor deployments through GitHub Actions interface.
 
-## 📋 Monitoring and Security
+## Monitoring and Security
 
 ### Deployment Monitoring
 
@@ -400,11 +400,11 @@ Key metrics include deployment duration, success rates, and resource utilization
 
 Integrates with GitHub Container Registry, Azure Cloud Services, Docker Compose, Let's Encrypt, and database management systems.
 
-## 📝 License
+## License
 
 This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
 
-## 👥 Development Team
+## Development Team
 
 **Ragnar TTRPG Platform Development Team**:
 
