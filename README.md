@@ -68,9 +68,9 @@ The cloud infrastructure implements a **containerized microservices architecture
 
 ### Service Status Overview
 
-- ✅ **Nginx** - **ACTIVE**: SSL termination & reverse proxy
-- ✅ **Certbot** - **ACTIVE**: Automated SSL certificate management
-- ✅ **Nextcloud** - **ACTIVE**: Cloud storage & collaboration
+- **Nginx** - **ACTIVE**: SSL termination & reverse proxy
+- **Certbot** - **ACTIVE**: Automated SSL certificate management
+- **Nextcloud** - **ACTIVE**: Cloud storage & collaboration
 
 ### Automated Deployment
 
