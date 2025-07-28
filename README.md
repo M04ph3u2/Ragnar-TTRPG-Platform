@@ -1,28 +1,33 @@
 # Ragnar TTRPG Platform - Cloud Infrastructure
 
-## Table of Contents
+## Table└── README.md              # This documentation
+```
+
+## Service Architecture
+
+### Service Status Overviewof Contents
 
 - [Branch Overview: jh-cloud](#branch-overview-jh-cloud)
-- [Cloud Architecture Overview](#️-cloud-architecture-overview)
-- [Project Structure](#-project-structure)
-- [Service Architecture](#-service-architecture)
+- [Cloud Architecture Overview](#cloud-architecture-overview)
+- [Project Structure](#project-structure)
+- [Service Architecture](#service-architecture)
   - [Service Status Overview](#service-status-overview)
   - [Nginx (Reverse Proxy & SSL)](#1-nginx-reverse-proxy--ssl)
   - [Certbot (SSL Automation)](#2-certbot-ssl-automation)
   - [Nextcloud (Cloud Storage)](#3-nextcloud-cloud-storage)
-- [Deployment Guide](#️-deployment-guide)
+- [Deployment Guide](#deployment-guide)
   - [Prerequisites](#prerequisites)
   - [Environment Setup](#environment-setup)
   - [Initial Deployment](#initial-deployment)
-- [Data Persistence](#️-data-persistence)
-- [Security](#-security)
+- [Data Persistence](#data-persistence)
+- [Security](#security)
   - [SSL/TLS Configuration](#ssltls-configuration)
   - [Container Security](#container-security)
   - [Application Security](#application-security)
   - [Network Security](#network-security)
   - [Data Protection](#data-protection)
-- [License](#-license)
-- [Development Team](#-development-team)
+- [License](#license)
+- [Development Team](#development-team)
 
 ## Branch Overview: jh-cloud
 
@@ -30,17 +35,17 @@ This branch contains the **cloud infrastructure** for the Ragnar TTRPG Platform,
 
 **Project Context**: This cloud infrastructure was developed as part of the broader vision to create a comprehensive TTRPG platform that would revolutionize how players interact with game content, share campaign materials, and collaborate on character development. When the ambitious scope of the complete commercial platform proved challenging within available resources, this cloud infrastructure was preserved to demonstrate enterprise-level cloud architecture and containerized deployment practices.
 
-**Implementation**: Designed and implemented solely by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)), this infrastructure showcases advanced Docker orchestration, automated SSL management, and production-ready cloud services integration using Nextcloud, Nginx, and Certbot.
+**Cloud Implementation**: This cloud infrastructure was designed and implemented solely by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) as part of the platform's scalable infrastructure requirements, demonstrating advanced containerization, cloud orchestration, and enterprise-grade security implementation capabilities.
 
-## 🏗️ Cloud Architecture Overview
+## Cloud Architecture Overview
 
-The cloud infrastructure follows a modular architecture with the following components:
+The cloud infrastructure implements a **containerized microservices architecture** with the following components:
 
 - **Nginx**: SSL termination, reverse proxy, and HTTP/HTTPS redirection
 - **Certbot**: Automated Let's Encrypt certificate generation and renewal
 - **Nextcloud**: Cloud storage, file synchronization, and user management
 
-## 📁 Project Structure
+## Project Structure
 
 ```sh
 .
@@ -59,7 +64,7 @@ The cloud infrastructure follows a modular architecture with the following compo
     └── nginx.conf         # Production nginx configuration for reverse proxy and SSL
 ```
 
-## 🚀 Service Architecture
+## Service Architecture
 
 ### Service Status Overview
 
@@ -143,7 +148,7 @@ The project includes a **GitHub Actions workflow** (`.github/workflows/deploy.ym
 - Backup and restoration tools
 - High availability clustering
 
-## 🛠️ Deployment Guide
+## Deployment Guide
 
 ### Prerequisites
 
@@ -263,12 +268,12 @@ https://your-domain.com
 # Use the database credentials from your .env file
 ```
 
-## 🗄️ Data Persistence
+## Data Persistence
 
 - `../data/nextcloud`: Nextcloud user and application data
 - `../data/certbot`: SSL certificates and Certbot configuration
 
-## 🔒 Security
+## Security
 
 ### SSL/TLS Configuration
 
@@ -314,11 +319,11 @@ https://your-domain.com
 - **Data retention policies** implementation
 - **Audit logging** for compliance
 
-## 📝 License
+## License
 
 This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
 
-## 👥 Development Team
+## Development Team
 
 **Ragnar TTRPG Platform Development Team**:
 
