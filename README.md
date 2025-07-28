@@ -2,9 +2,11 @@
 
 ## Branch Overview: jh-devops
 
-This branch contains the **DevOps infrastructure** and CI/CD pipeline configuration for the Ragnar TTRPG Platform. It implements a comprehensive automated deployment system with Azure integration, multi-repository orchestration, and intelligent backup strategies designed for enterprise-scale operations.
+This branch contains the **DevOps infrastructure** and CI/CD pipeline configuration for the Ragnar TTRPG Platform, originally developed to support the deployment and operations of an innovative digital tabletop role-playing game solution. The infrastructure was designed to handle the scalable deployment requirements of what was intended to be a commercial platform serving hybrid online/offline gaming experiences.
 
-**DevOps Implementation**: This infrastructure was designed and implemented by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) as part of the platform's deployment automation requirements.
+**Project Evolution**: This DevOps infrastructure was built to support the original vision of creating a market-competitive TTRPG platform. When the project scope proved challenging to complete within available resources, the comprehensive automation and deployment systems were preserved as a demonstration of enterprise-level DevOps practices and cloud infrastructure management.
+
+**DevOps Implementation**: This infrastructure was designed and implemented solely by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) as part of the platform's deployment automation requirements, showcasing advanced CI/CD pipeline orchestration and Azure cloud management capabilities.
 
 ## 🏗️ DevOps Architecture Overview
 
