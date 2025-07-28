@@ -6,6 +6,26 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue.svg)](https://www.postgresql.org/)
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://openjdk.org/)
 
+## Table of Contents
+
+- [Overview](#overview)
+  - [Transition Context](#transition-context)
+- [Architectural Evolution Journey](#architectural-evolution-journey)
+  - [Technology Stack Progression](#technology-stack-progression)
+  - [Migration Drivers](#migration-drivers)
+- [Technology Stack](#technology-stack)
+  - [Backend (Spring Boot 3.2.2)](#backend-spring-boot-322)
+  - [Frontend (Angular 17.1)](#frontend-angular-171)
+- [Project Structure](#project-structure)
+- [Core Features](#core-features)
+- [Development Setup](#development-setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Migration Lessons Learned](#migration-lessons-learned)
+- [Team and Evolution](#team-and-evolution)
+- [License](#license)
+- [Related Repositories](#related-repositories)
+
 ## Overview
 
 This repository represents the **technology transition phase** of the Ragnar TTRPG Platform, documenting the experimental architectural evolution during the active development of what was originally envisioned as a revolutionary digital TTRPG solution. This branch captures the intermediate stage where **HeatPeak Studio** explored enterprise technologies like Spring Boot and Angular, seeking to address the scalability and enterprise-readiness challenges identified in the initial MERN stack implementation.
@@ -61,30 +81,79 @@ The `hp-jh-transition` branch demonstrates the strategic technology migration fr
 
 ## Project Structure
 
-```
-transition-repo/
+```text
+hp-jh-transition/
 ├── backend/                    # Spring Boot application
 │   ├── src/main/java/
 │   │   └── com/heatpeakstudio/backend/
-│   │       ├── BackendApplication.java     # Main Spring Boot class
+│   │       ├── BackendApplication.java     # Main Spring Boot application class
 │   │       └── WebRoutingConfig.java       # SPA routing configuration
 │   ├── src/main/resources/
-│   │   └── application.properties          # Spring configuration
-│   ├── pom.xml                            # Maven dependencies
-│   └── Dockerfile                         # Container configuration
+│   │   └── application.properties          # Spring Boot configuration
+│   ├── .mvn/                              # Maven wrapper directory
+│   │   └── wrapper/
+│   │       ├── maven-wrapper.jar          # Maven wrapper JAR
+│   │       └── maven-wrapper.properties   # Maven wrapper configuration
+│   ├── mvnw                               # Maven wrapper script (Unix)
+│   ├── mvnw.cmd                           # Maven wrapper script (Windows)
+│   ├── pom.xml                            # Maven dependencies and build configuration
+│   ├── Dockerfile                         # Container configuration for deployment
+│   ├── .gitignore                         # Backend Git ignore patterns
+│   └── target/                            # Maven build output directory
 ├── frontend/                   # Angular application
 │   ├── src/
 │   │   ├── app/
 │   │   │   ├── app.component.ts           # Root Angular component
-│   │   │   └── app.module.ts              # Main application module
+│   │   │   ├── app.component.html         # Root component template
+│   │   │   ├── app.component.css          # Root component styles
+│   │   │   ├── app.component.spec.ts      # Root component tests
+│   │   │   ├── app.module.ts              # Main application module
+│   │   │   ├── app-routing.module.ts      # Angular routing configuration
+│   │   │   ├── login/                     # Login component
+│   │   │   │   ├── login.component.ts
+│   │   │   │   ├── login.component.html
+│   │   │   │   └── login.component.css
+│   │   │   ├── main/                      # Main component
+│   │   │   │   ├── main.component.ts
+│   │   │   │   ├── main.component.html
+│   │   │   │   └── main.component.css
+│   │   │   ├── navbar/                    # Navigation component
+│   │   │   │   ├── navbar.component.ts
+│   │   │   │   ├── navbar.component.html
+│   │   │   │   └── navbar.component.css
+│   │   │   └── pages/                     # Feature pages
+│   │   │       └── ttrpg/                 # TTRPG specific components
+│   │   │           ├── ttrpg.component.ts
+│   │   │           ├── ttrpg.component.html
+│   │   │           └── ttrpg.component.css
+│   │   ├── assets/                        # Static assets directory
+│   │   │   ├── .gitkeep                   # Git placeholder for empty directory
+│   │   │   ├── construction-under-kipp.gif # Construction placeholder image
+│   │   │   ├── login.png                  # Login page image
+│   │   │   ├── logo.png                   # Application logo
+│   │   │   ├── logo.svg                   # Vector logo
+│   │   │   └── logoborded.png             # Bordered logo variant
 │   │   ├── index.html                     # Application shell
-│   │   └── main.ts                        # Bootstrap entry point
+│   │   ├── main.ts                        # Angular bootstrap entry point
+│   │   └── styles.css                     # Global application styles
 │   ├── angular.json                       # Angular CLI configuration
-│   ├── package.json                       # npm dependencies
-│   └── tsconfig.json                      # TypeScript configuration
-├── development/                # Development utilities
-│   ├── Start_Backend.bat                  # Windows backend startup
-│   └── Start_Frontend.bat                 # Windows frontend startup
+│   ├── package.json                       # npm dependencies and scripts
+│   ├── package-lock.json                  # npm dependency lock file
+│   ├── tsconfig.json                      # TypeScript configuration
+│   ├── tsconfig.app.json                  # TypeScript app-specific configuration
+│   ├── tsconfig.spec.json                 # TypeScript testing configuration
+│   ├── tailwind.config.js                 # TailwindCSS configuration
+│   ├── .editorconfig                      # Editor configuration
+│   ├── .gitignore                         # Frontend Git ignore patterns
+│   └── README.md                          # Frontend-specific documentation
+├── development/                # Development utilities and scripts
+│   ├── Start_Backend.bat                  # Windows backend startup script
+│   └── Start_Frontend.bat                 # Windows frontend startup script
+├── .github/                               # GitHub Actions and workflows
+│   └── workflows/
+│       └── main.yml                       # CI/CD workflow configuration
+├── .gitignore                             # Git ignore patterns
+├── LICENSE.md                             # Creative Commons license
 └── README.md                              # This documentation
 ```
 
@@ -126,6 +195,7 @@ transition-repo/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd transition-repo
@@ -133,6 +203,7 @@ transition-repo/
    ```
 
 2. **Backend Setup**
+
    ```bash
    cd backend
    mvn clean install
@@ -140,6 +211,7 @@ transition-repo/
    ```
 
 3. **Frontend Setup**
+
    ```bash
    cd frontend
    npm install
@@ -147,6 +219,7 @@ transition-repo/
    ```
 
 4. **Database Setup**
+
    ```sql
    -- Create PostgreSQL database
    CREATE DATABASE ragnar_ttrpg;
