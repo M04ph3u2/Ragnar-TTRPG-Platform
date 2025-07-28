@@ -6,16 +6,18 @@
 
 ## Overview
 
-This unified repository contains the complete evolution of the **Ragnar TTRPG Platform**, from its initial HeatPeak Studio implementation through its transition phases to the modern JuggleHive cloud-native architecture. Each branch represents a distinct phase in the platform's technological and architectural evolution.
+This unified repository contains the complete evolution of the **Ragnar TTRPG Platform**, an ambitious project originally conceived to revolutionize tabletop role-playing games through innovative digital tools. The platform was designed to enhance both online and in-person gaming experiences with a hybrid system that would surpass existing market solutions.
+
+After extensive development efforts across multiple technological iterations, the team recognized that the project's scope exceeded available time and financial resources. Rather than abandon years of architectural innovation, the codebase has been preserved and documented as a comprehensive portfolio demonstration, showcasing the complete evolution from initial concept to enterprise-grade cloud architecture.
 
 ### Repository Purpose
 
-This unified structure serves multiple purposes:
+This unified structure now serves multiple purposes:
 
-- **Portfolio Demonstration**: Showcasing architectural evolution and technology mastery
-- **Historical Preservation**: Maintaining complete development history across all phases  
-- **Educational Resource**: Demonstrating migration patterns and architectural decisions
-- **Development Reference**: Providing working examples of different technology stacks
+- **Portfolio Demonstration**: Showcasing the complete architectural journey and technical expertise developed during the project's evolution
+- **Historical Preservation**: Maintaining the complete development history across all technological phases and architectural decisions
+- **Educational Resource**: Demonstrating real-world migration patterns, architectural decisions, and lessons learned from ambitious project development
+- **Development Reference**: Providing working examples of different technology stacks and their practical implementation challenges
 
 ## Branch Structure
 
@@ -97,21 +99,31 @@ git checkout jh-cloud
 
 ## Project Evolution History
 
-This unified repository was created by consolidating several separate repositories to demonstrate the complete architectural evolution:
+This unified repository was created by consolidating several separate repositories to preserve the complete architectural evolution of an ambitious TTRPG platform project:
 
-- **`hp-main`**: From original HeatPeak Studio MERN stack repository
-- **`jh-main`**: From JuggleHive modern implementation repository  
-- **`hp-jh-transition`**: From technology transition experimental repository
-- **`jh-devops`**: From DevOps infrastructure management repository
-- **`jh-cloud`**: From cloud services configuration repository
+- **`hp-main`**: Original HeatPeak Studio MERN stack implementation by Stefano Sciacovelli
+- **`jh-main`**: JuggleHive modern implementation with collaborative development (Stefano Sciacovelli, Davide Peruzzi, Daniele Serasinghe)
+- **`hp-jh-transition`**: Technology transition experimental phase by Stefano Sciacovelli
+- **`jh-devops`**: DevOps infrastructure management by Stefano Sciacovelli
+- **`jh-cloud`**: Cloud services configuration by Stefano Sciacovelli
+
+### Development Team
+
+- **Stefano Sciacovelli**: Lead developer and architect across all phases, solo contributor to most branches
+- **Davide Peruzzi**: Collaborative development on jh-main branch (modern implementation)
+- **Daniele Serasinghe**: Collaborative development on jh-main branch (modern implementation)
 
 ### Timeline of Evolution
 
-1. **HeatPeak Studio Phase** (hp-main): Initial MERN stack implementation with MongoDB
-2. **Transition Experimentation** (hp-jh-transition): Spring Boot + Angular exploration
-3. **Modern Implementation** (jh-main): .NET Core + Angular with Azure integration
-4. **Infrastructure Development** (jh-devops): DevOps automation and CI/CD pipelines
-5. **Cloud Services** (jh-cloud): Production cloud infrastructure and external integrations
+1. **Initial Vision** (hp-main): MERN stack implementation attempting to create revolutionary TTRPG digital tools
+2. **Technology Exploration** (hp-jh-transition): Spring Boot + Angular experimentation seeking better scalability
+3. **Enterprise Implementation** (jh-main): .NET Core + Angular with team collaboration, pushing toward production-ready solution
+4. **Infrastructure Development** (jh-devops): DevOps automation attempting to enable scalable deployment
+5. **Cloud Integration** (jh-cloud): Production cloud infrastructure for enterprise-grade hosting
+
+### Project Transformation
+
+Originally conceived as a commercial venture to revolutionize tabletop gaming through innovative digital tools, the project evolved through multiple technological iterations as the team sought the optimal architecture for their ambitious vision. After recognizing that the project's scope exceeded available resources, the comprehensive codebase has been preserved as a portfolio demonstration of architectural evolution and technical expertise.
 
 ## Architecture Comparison
 
@@ -144,4 +156,4 @@ Each branch contains comprehensive documentation:
 
 ---
 
-*This unified repository demonstrates the complete evolution of the Ragnar TTRPG Platform, showcasing different architectural approaches, technology stacks, and implementation strategies across multiple development phases.*
+*This unified repository demonstrates the complete evolution of the Ragnar TTRPG Platform, showcasing the architectural journey from ambitious commercial project to comprehensive portfolio demonstration of technical expertise and innovation.*
