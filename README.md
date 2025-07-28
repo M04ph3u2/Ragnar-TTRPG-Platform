@@ -71,7 +71,7 @@ jh-devops/
 
 ### Workflow Status Overview
 
-- ✅ **deploy.yml** - **ACTIVE**: Ready for deployment operations
+- **deploy.yml** - **ACTIVE**: Ready for deployment operations
 - **startvm.yml** - **DISABLED**: VM startup automation disabled  
 - **stopvm.yml** - **DISABLED**: Scheduled backup and shutdown disabled
 
