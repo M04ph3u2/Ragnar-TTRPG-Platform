@@ -4,6 +4,25 @@
 [![Multi-Technology](https://img.shields.io/badge/Stack-Multi--Technology-blueviolet.svg)]()
 [![Portfolio Project](https://img.shields.io/badge/Type-Portfolio%20Project-green.svg)]()
 
+## Table of Contents
+
+- [Overview](#overview)
+  - [Repository Purpose](#repository-purpose)
+- [Branch Structure](#branch-structure)
+  - [`hp-main` - Legacy HeatPeak Studio Implementation](#hp-main---legacy-heatpeak-studio-implementation)
+  - [`jh-main` - Modern JuggleHive Implementation](#jh-main---modern-jugglehive-implementation)
+  - [`hp-jh-transition` - Technology Transition Phase](#hp-jh-transition---technology-transition-phase)
+  - [`jh-devops` - DevOps Infrastructure](#jh-devops---devops-infrastructure)
+  - [`jh-cloud` - Cloud Services Infrastructure](#jh-cloud---cloud-services-infrastructure)
+- [Working with Branches](#working-with-branches)
+- [Project Evolution History](#project-evolution-history)
+  - [Development Team](#development-team)
+  - [Timeline of Evolution](#timeline-of-evolution)
+  - [Project Transformation](#project-transformation)
+- [Architecture Comparison](#architecture-comparison)
+- [License](#license)
+- [Related Documentation](#related-documentation)
+
 ## Overview
 
 This unified repository contains the complete evolution of the **Ragnar TTRPG Platform**, an ambitious project originally conceived to revolutionize tabletop role-playing games through innovative digital tools. The platform was designed to enhance both online and in-person gaming experiences with a hybrid system that would surpass existing market solutions.
