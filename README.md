@@ -522,8 +522,8 @@ This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 I
 
 **Ragnar TTRPG Platform Development Team**:
 
-- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Platform Architecture
-- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Backend Integration
+- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
+- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer
 - **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
 
 ---
