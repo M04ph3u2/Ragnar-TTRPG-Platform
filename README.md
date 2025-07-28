@@ -10,6 +10,7 @@
 
 - [Overview](#overview)
   - [Legacy Architecture Context](#legacy-architecture-context)
+- [Live Demo](#-live-demo)
 - [Technology Stack](#technology-stack)
   - [Backend (Node.js/Express)](#backend-nodejsexpress)
   - [Frontend (React)](#frontend-react)
@@ -40,6 +41,14 @@ This repository represents the **legacy implementation** of the Ragnar TTRPG Pla
 ### Legacy Architecture Context
 
 The `hp-main` branch demonstrates a traditional **MERN stack** approach (MongoDB, Express.js, React, Node.js) with document-based data modeling, representing the initial phase of the platform's development when it focused on core TTRPG functionality without cloud integration.
+
+## Live Demo
+
+**[Try the Live Demo](https://ragnar-legacy.onrender.com/rpg/)**
+
+This legacy implementation features a **fully functional live demo** showcasing the complete TTRPG platform capabilities. While other branches in this repository represent various technological transitions and may have incomplete frontend implementations, this legacy version provides a comprehensive demonstration of some of the core platform and game world building's ideas.
+
+> **Note**: The demo runs on a free hosting tier, so initial loading may take 30-60 seconds as the server spins up from sleep mode.
 
 ## Technology Stack
 
