@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="100" height="100" />
+</div>
+
 # Ragnar TTRPG Platform - Legacy Implementation (hp-main)
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
