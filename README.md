@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="../icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
+  <img src="../icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="100" height="100" />
+</div>
+
 # Ragnar TTRPG Platform - Legacy Implementation (hp-main)
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
