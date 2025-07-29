@@ -2,15 +2,15 @@
   <table>
     <tr>
       <td align="center">
-        <img src="../icons/ragnar.svg" alt="Ragnar TTRPG" width="80" height="80" />
+        <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/ragnar.svg" alt="Ragnar TTRPG" width="80" height="80" />
         <br><sub>The Platform</sub>
       </td>
       <td align="center">
-        <img src="../icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="80" height="80" />
+        <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="80" height="80" />
         <br><sub>From</sub>
       </td>
       <td align="center">
-        <img src="../icons/jugglehive.svg" alt="Juggle Hive" width="80" height="80" />
+        <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/jugglehive.svg" alt="Juggle Hive" width="80" height="80" />
         <br><sub>To</sub>
       </td>
     </tr>
