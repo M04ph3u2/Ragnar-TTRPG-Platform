@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="../icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
-  <img src="../icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="100" height="100" />
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="100" height="100" />
 </div>
 
 # Ragnar TTRPG Platform - Legacy Implementation (hp-main)
