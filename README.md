@@ -1,3 +1,22 @@
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="../icons/ragnar.svg" alt="Ragnar TTRPG" width="80" height="80" />
+        <br><sub>The Platform</sub>
+      </td>
+      <td align="center">
+        <img src="../icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="80" height="80" />
+        <br><sub>From</sub>
+      </td>
+      <td align="center">
+        <img src="../icons/jugglehive.svg" alt="Juggle Hive" width="80" height="80" />
+        <br><sub>To</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
 # Ragnar TTRPG Platform - Technology Transition Phase (hp-jh-transition)
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
