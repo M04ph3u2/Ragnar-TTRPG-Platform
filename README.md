@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="../icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
+  <img src="../icons/jugglehive.svg" alt="Juggle Hive" width="100" height="100" />
+</div>
+
 # Ragnar TTRPG Platform - Main Application
 
 ## Table of Contents
