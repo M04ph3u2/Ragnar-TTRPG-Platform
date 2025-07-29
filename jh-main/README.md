@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/ragnar.svg" alt="Ragnar TTRPG" width="100" height="100" />
+  <img src="https://raw.githubusercontent.com/M04ph3u2/Ragnar-TTRPG-Platform/df5a1aa19299cb6368cabdb5945e903cdc1c3b59/icons/jugglehive.svg" alt="Juggle Hive" width="100" height="100" />
+</div>
+
 # Ragnar TTRPG Platform - Main Application
 
 ## Table of Contents
