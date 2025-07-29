@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="icons/ragnar.svg" alt="Ragnar TTRPG" width="120" height="120" />
+</div>
+
 # Ragnar TTRPG Platform - Unified Repository
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
@@ -60,9 +64,32 @@ This unified structure now serves multiple purposes:
 
 ### Development Team
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="icons/heatpeakstudio.svg" alt="HeatPeak Studio" width="80" height="80" />
+        <br><strong>HeatPeak Studio</strong>
+        <br><sub>Original Development Phase</sub>
+      </td>
+      <td align="center">
+        <img src="icons/jugglehive.svg" alt="Juggle Hive" width="80" height="80" />
+        <br><strong>Juggle Hive</strong>
+        <br><sub>Modern Development Phase</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+**HeatPeak Studio Era:**
+
 - **Stefano Sciacovelli**: Lead developer and architect across all phases, solo contributor to most branches
-- **Davide Gritta**: Collaborative development on jh-main branch (Backend Developer & Database Designer)
-- **Gianluca Rossetti**: Collaborative development on jh-main branch (Full-Stack Developer)
+
+**Juggle Hive Era:**
+
+- **Stefano Sciacovelli**: DevOps infrastructure and team coordination
+- **Davide Gritta**: Backend Developer & Database Designer (jh-main branch)
+- **Gianluca Rossetti**: Full-Stack Developer (jh-main branch)
 
 ### Complete History Access
 
