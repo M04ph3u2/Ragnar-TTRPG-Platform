@@ -27,7 +27,6 @@
   - [Network Security](#network-security)
   - [Data Protection](#data-protection)
 - [License](#license)
-- [Development Team](#development-team)
 
 ## Branch Overview: jh-cloud
 
@@ -322,14 +321,6 @@ https://your-domain.com
 ## License
 
 This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
-
-## Development Team
-
-**Ragnar TTRPG Platform Development Team**:
-
-- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
-- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer
-- **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
 
 ---
 
