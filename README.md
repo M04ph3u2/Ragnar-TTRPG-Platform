@@ -18,6 +18,7 @@
   - [`jh-cloud/` - Cloud Services Infrastructure](#jh-cloud---cloud-services-infrastructure)
   - [`jh-devops/` - DevOps Infrastructure](#jh-devops---devops-infrastructure)
   - [`jh-main/` - Modern JuggleHive Implementation](#jh-main---modern-jugglehive-implementation)
+- [Design Assets and UI/UX Documentation](#design-assets-and-uiux-documentation)
 - [Working with Implementations](#working-with-implementations)
 - [Project Evolution History](#project-evolution-history)
   - [Development Team](#development-team)
@@ -83,13 +84,16 @@ This unified structure now serves multiple purposes:
 
 **HeatPeak Studio Era:**
 
-- **Stefano Sciacovelli**: Lead developer and architect across all phases, solo contributor to most branches
+- **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - Project Manager & Lead developer and architect across all phases, solo contributor to most branches
+- **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Project Manager & Only game designer from the start of the project
 
 **Juggle Hive Era:**
 
-- **Stefano Sciacovelli**: DevOps infrastructure and team coordination
-- **Davide Gritta**: Backend Developer & Database Designer (jh-main branch)
-- **Gianluca Rossetti**: Full-Stack Developer (jh-main branch)
+- **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - Project Manager & DevOps infrastructure and automation
+- **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Project Manager & Game designer - Core TTRPG mechanics and gameplay systems
+- **Alessia Grassi**: [LinkedIn Profile](https://www.linkedin.com/in/alessia-grassi-game-artist/) - Project Manager & UI/UX Designer
+- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer (jh-main branch)
+- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer (jh-main branch)
 
 ### Complete History Access
 
@@ -162,6 +166,22 @@ The production-ready implementation with enterprise architecture and Azure cloud
 
 **Key Features**: Complete TTRPG platform, Azure cloud integration, enterprise architecture
 **Documentation**: See `jh-main/README.md` for complete technical details and deployment guides
+
+## Design Assets and UI/UX Documentation
+
+The repository includes comprehensive design assets distributed across the appropriate implementation phases. **All UI/UX designs were created by Alessia Grassi using Figma** and exported as SVG assets for development reference:
+
+### `hp-jh-transition/design/` - Transition Phase Designs
+
+- **ui-mockup-legacy.svg**: Legacy UI design prototypes from the Spring Boot + Angular experimental phase, showcasing the intermediate design concepts explored during the technology transition period.
+- **character-page-mockup.svg**: Character page interface mockup designed during the transition phase, demonstrating the evolution of character management UI concepts.
+
+### `jh-main/design/` - Modern Implementation Designs  
+
+- **jugglehive-ui-design.svg**: Complete page layout designs for the Juggle Hive era, featuring modern Angular UI components and responsive design patterns
+- **ragnar-ui-design.svg**: Comprehensive Ragnar TTRPG platform design concepts establishing the visual identity and user interface standards
+
+**Design Evolution**: These assets document the complete UI/UX evolution from initial concepts through final implementation, providing insight into the design decision-making process and visual development across all project phases.
 
 ## Working with Implementations
 
