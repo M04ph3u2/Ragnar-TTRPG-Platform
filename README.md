@@ -91,7 +91,7 @@ This unified structure now serves multiple purposes:
 
 - **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - Project Manager & DevOps infrastructure and automation
 - **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Project Manager & Game designer - Core TTRPG mechanics and gameplay systems
-- **Alessia Grassi**: [LinkedIn Profile](https://www.linkedin.com/in/alessia-grassi-game-artist/) - Project Manager & UI/UX Designer
+- **Alessia Grassi**: [LinkTree Page](https://linktr.ee/alessiagrassi) - Project Manager & UI/UX Designer
 - **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer (jh-main branch)
 - **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer (jh-main branch)
 
