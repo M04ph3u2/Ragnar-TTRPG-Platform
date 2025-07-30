@@ -18,7 +18,6 @@
   - [`jh-cloud/` - Cloud Services Infrastructure](#jh-cloud---cloud-services-infrastructure)
   - [`jh-devops/` - DevOps Infrastructure](#jh-devops---devops-infrastructure)
   - [`jh-main/` - Modern JuggleHive Implementation](#jh-main---modern-jugglehive-implementation)
-- [Design Assets and UI/UX Documentation](#design-assets-and-uiux-documentation)
 - [Working with Implementations](#working-with-implementations)
 - [Project Evolution History](#project-evolution-history)
   - [Development Team](#development-team)
@@ -118,8 +117,6 @@ git log --all --author="Stefano"
 git log --all --graph --stat --pretty=format:"%h %an %s"
 ```
 
-**Total Commits**: Over 380 commits preserved across all implementations, providing complete visibility into the architectural evolution and development process.
-
 ## Implementation Structure
 
 ### `hp-jh-transition/` - Technology Transition Phase
@@ -166,22 +163,6 @@ The production-ready implementation with enterprise architecture and Azure cloud
 
 **Key Features**: Complete TTRPG platform, Azure cloud integration, enterprise architecture
 **Documentation**: See `jh-main/README.md` for complete technical details and deployment guides
-
-## Design Assets and UI/UX Documentation
-
-The repository includes comprehensive design assets distributed across the appropriate implementation phases. **All UI/UX designs were created by Alessia Grassi using Figma** and exported as SVG assets for development reference:
-
-### `hp-jh-transition/design/` - Transition Phase Designs
-
-- **ui-mockup-legacy.svg**: Legacy UI design prototypes from the Spring Boot + Angular experimental phase, showcasing the intermediate design concepts explored during the technology transition period.
-- **character-page-mockup.svg**: Character page interface mockup designed during the transition phase, demonstrating the evolution of character management UI concepts.
-
-### `jh-main/design/` - Modern Implementation Designs  
-
-- **jugglehive-ui-design.svg**: Complete page layout designs for the Juggle Hive era, featuring modern Angular UI components and responsive design patterns
-- **ragnar-ui-design.svg**: Comprehensive Ragnar TTRPG platform design concepts establishing the visual identity and user interface standards
-
-**Design Evolution**: These assets document the complete UI/UX evolution from initial concepts through final implementation, providing insight into the design decision-making process and visual development across all project phases.
 
 ## Working with Implementations
 
