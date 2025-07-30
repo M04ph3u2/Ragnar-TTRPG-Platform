@@ -102,12 +102,27 @@ jh-main/
 ├── database/                          # Database schema and sample data
 │   ├── ttrpg_postgres.sql            # PostgreSQL schema definition
 │   └── sample_data.sql               # Test data for development
+├── design/                            # UI/UX Design Assets and Mockups
+│   ├── jugglehive-ui-design.svg       # Juggle Hive era UI mockups
+│   └── ragnar-ui-design.svg           # Ragnar TTRPG platform design concepts
 ├── JuggleHiveWebapp.sln              # Visual Studio solution file
 ├── Dockerfile                        # Multi-stage Docker build configuration
 ├── .dockerignore                     # Docker build exclusions
 ├── .gitignore                        # Git exclusion patterns
 └── LICENSE.md                        # Project license (CC BY-NC-ND 4.0)
 ```
+
+## Design Assets
+
+### UI/UX Design Documentation
+
+The `design/` directory contains comprehensive UI/UX design assets and mockups that guided the development of the modern Juggle Hive implementation. **All designs were created by Alessia Grassi using Figma** and exported as SVG assets for developer reference:
+
+- **jugglehive-ui-design.svg**: Complete page layout designs for the Juggle Hive era, featuring the modern Angular UI components and responsive design patterns implemented in this branch.
+
+- **ragnar-ui-design.svg**: Comprehensive Ragnar TTRPG platform design concepts that establish the visual identity and user interface standards for the entire platform ecosystem.
+
+**Design Evolution**: These design assets represent the culmination of the platform's UI/UX evolution, incorporating lessons learned from the legacy implementations and transition phases to create a cohesive, modern user experience optimized for both online and in-person TTRPG gaming scenarios.
 
 ## Application Components
 
@@ -342,11 +357,18 @@ This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 I
 
 This branch represents a collaborative effort by the complete development team:
 
+**Development Team:**
+
 - **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
 - **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer  
 - **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
 
-**Note**: While all other branches (`hp-main`, `hp-jh-transition`, `jh-devops`, `jh-cloud`) were developed solely by [Stefano Sciacovelli](https://github.com/M04ph3u2), this `jh-main` branch benefited from the collaborative expertise of all three team members, representing the pinnacle of the project's technical achievement.
+**Design & Game Development:**
+
+- **Alessia Grassi**: [LinkedIn Profile](https://www.linkedin.com/in/alessia-grassi-game-artist/) - UI/UX Designer - Created all interface designs and user experience mockups using Figma
+- **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Game Designer - Designed core TTRPG mechanics and gameplay systems
+
+**Note**: While all other branches (`hp-main`, `hp-jh-transition`, `jh-devops`, `jh-cloud`) were developed solely by [Stefano Sciacovelli](https://github.com/M04ph3u2) with some help on the non-developer design side, this `jh-main` branch benefited from the collaborative expertise of all team members, representing the pinnacle of the project's technical and design achievement.
 
 ---
 
