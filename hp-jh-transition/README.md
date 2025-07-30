@@ -171,10 +171,25 @@ hp-jh-transition/
 ├── .github/                               # GitHub Actions and workflows
 │   └── workflows/
 │       └── main.yml                       # CI/CD workflow configuration
+├── design/                               # UI/UX Design Assets
+│   ├── ui-mockup-legacy.svg               # Legacy UI design prototypes
+│   └── character-page-mockup.svg          # Character page UI mockup
 ├── .gitignore                             # Git ignore patterns
 ├── LICENSE.md                             # Creative Commons license
 └── README.md                              # This documentation
 ```
+
+## Design Assets
+
+### UI/UX Design Documentation
+
+The `design/` directory contains the original UI design prototypes and mockups created during the transition phase. **All designs were created by Alessia Grassi using Figma** and exported as SVG assets for development reference:
+
+- **ui-mockup-legacy.svg**: Legacy interface design prototypes showcasing the original vision for the Spring Boot + Angular implementation. These designs capture the intermediate UI concepts explored during the technology transition period, representing the bridge between the legacy MERN implementation and the modern enterprise architecture.
+
+- **character-page-mockup.svg**: Comprehensive mockup of the character page interface, including character sheet layouts, attribute displays, and interactive elements designed for the TTRPG gaming experience. These designs integrate **Paolo Nicola Leovino's game mechanics** to ensure optimal user interaction patterns.
+
+**Design Evolution Context**: These design artifacts document the UI/UX exploration during the platform's architectural transition, demonstrating the iterative design process that informed the eventual modern implementation in the `jh-main` branch.
 
 ## Core Features
 
@@ -294,7 +309,16 @@ Start_Frontend.bat
 
 ### HeatPeak Studio Transition Phase
 
-- **Developer**: **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) - Solo development
+**Development Team:**
+- **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - Lead developer and architecture
+
+**Design & Game Development Support:**
+
+- **Alessia Grassi**: [LinkTree Page](https://linktr.ee/alessiagrassi) - UI/UX design concepts and mockups created in Figma
+- **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Game mechanics design and user interaction patterns
+
+**Phase Details:**
+
 - **Period**: Technology evaluation and migration experimentation
 - **Focus**: Enterprise architecture preparation and technology stack evaluation
 - **Learning**: Java/Spring Boot and Angular ecosystem mastery
@@ -310,7 +334,7 @@ This transition phase provided crucial insights that influenced the final collab
 - **Scalability Patterns**: Microservices architecture foundation
 - **Development Practices**: DevOps and CI/CD pipeline preparation
 
-**Team Collaboration**: While this transition branch was developed solely by Stefano Sciacovelli, the insights gained directly contributed to the later collaborative effort in `jh-main` involving Davide Gritta (Backend/Database) and Gianluca Rossetti (Full-Stack Development).
+**Team Collaboration**: While this transition branch was developed primarily by **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)), the insights gained directly contributed to the later collaborative effort in `jh-main` involving the complete team: Davide Gritta (Backend/Database), Gianluca Rossetti (Full-Stack Development), Alessia Grassi (UI/UX Design), and Paolo Nicola Leovino (Game Design).
 
 ## License
 
