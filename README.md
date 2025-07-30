@@ -31,9 +31,6 @@
   - [Installation](#installation)
 - [Architecture Evolution](#architecture-evolution)
   - [From Legacy to Modern](#from-legacy-to-modern)
-- [Team and History](#team-and-history)
-  - [HeatPeak Studio Phase](#heatpeak-studio-phase)
-  - [Transition to JuggleHive Team Collaboration](#transition-to-jugglehive-team-collaboration)
 - [License](#license)
 - [Related Repositories](#related-repositories)
 
@@ -275,28 +272,6 @@ This legacy implementation served as the foundation for the modern platform, dem
 - Angular with NgRx state management
 - Azure AD B2C authentication
 - Microservices with Azure deployment
-
-## Team and History
-
-### HeatPeak Studio Phase
-
-- **Period**: Initial development and concept validation of the commercial TTRPG platform
-- **Developer**: **Stefano Sciacovelli** ([GitHub Profile](https://github.com/M04ph3u2)) - Solo development
-- **Focus**: Core TTRPG mechanics, AI-generated imagery system, and user interface
-- **Social Media**: @heatpeakstudio on Instagram
-- **Architecture**: Traditional MERN stack approach with MongoDB document modeling
-
-### Transition to JuggleHive Team Collaboration
-
-The platform later evolved to include the full JuggleHive development team collaboration (visible in the `jh-main` branch) with:
-
-- **Davide Gritta**: Backend development and database design
-- **Gianluca Rossetti**: Full-stack development
-- **Stefano Sciacovelli**: DevOps infrastructure and automation
-- Cloud-native architecture on Azure
-- Enterprise authentication and security
-- Modern frontend frameworks and tools
-- Scalable microservices design
 
 ## License
 
