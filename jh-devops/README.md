@@ -30,7 +30,6 @@
 - [Usage Instructions](#usage-instructions)
 - [Monitoring and Security](#monitoring-and-security)
 - [License](#license)
-- [Development Team](#development-team)
 
 ## Branch Overview: jh-devops
 
@@ -408,14 +407,6 @@ Integrates with GitHub Container Registry, Azure Cloud Services, Docker Compose,
 ## License
 
 This project is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International License. See the [LICENSE.md](LICENSE.md) file for details.
-
-## Development Team
-
-**Ragnar TTRPG Platform Development Team**:
-
-- **Davide Gritta**: [GitHub Profile](https://github.com/GrittaGit) - Backend Developer & Database Designer
-- **Gianluca Rossetti**: [GitHub Profile](https://github.com/Ross9519) - Full-Stack Developer
-- **Stefano Sciacovelli**: [GitHub Profile](https://github.com/M04ph3u2) - DevOps Infrastructure & Automation
 
 ---
 
