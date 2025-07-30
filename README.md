@@ -365,7 +365,7 @@ This branch represents a collaborative effort by the complete development team:
 
 **Design & Game Development:**
 
-- **Alessia Grassi**: [LinkedIn Profile](https://www.linkedin.com/in/alessia-grassi-game-artist/) - UI/UX Designer - Created all interface designs and user experience mockups using Figma
+- **Alessia Grassi**: [LinkTree Page](https://linktr.ee/alessiagrassi) - UI/UX Designer - Created all interface designs and user experience mockups using Figma
 - **Paolo Nicola Leovino**: [LinkedIn Profile](https://www.linkedin.com/in/paolonicolaleovino/) - Game Designer - Designed core TTRPG mechanics and gameplay systems
 
 **Note**: While all other branches (`hp-main`, `hp-jh-transition`, `jh-devops`, `jh-cloud`) were developed solely by [Stefano Sciacovelli](https://github.com/M04ph3u2) with some help on the non-developer design side, this `jh-main` branch benefited from the collaborative expertise of all team members, representing the pinnacle of the project's technical and design achievement.
